@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "server": "webpack-dev-server --hot --config webpack.config.js --inline --progress --profile --colors --watch --display-error-details --display-cached --content-base src/"
   },
   "author": "Evgeny P Fomin",
   "license": "ISC",
@@ -15,8 +15,12 @@
   },
   "devDependencies": {
     "angular2-hmr": "^0.5.5",
+    "es6-promise": "^3.1.2",
     "es6-shim": "^0.35.0",
     "es7-reflect-metadata": "^1.6.0",
+    "html-webpack-plugin": "^2.15.0",
+    "raw-loader": "^0.5.1",
+    "ts-loader": "^0.8.1",
     "typescript": "^1.8.9",
     "typings": "^0.7.12",
     "webpack": "^1.12.14",

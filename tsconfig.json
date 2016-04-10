@@ -1,0 +1,23 @@
+{
+    "compilerOptions": {
+        "module": "commonjs",
+        "target": "es5",
+        "noImplicitAny": false,
+        "outDir": "built",
+        "rootDir": ".",
+        "sourceMap": true,
+        "experimentalDecorators": true
+    },
+    "exclude": [
+        "node_modules",
+        "dist",
+        "typings/main",
+        "typings/main.d.ts"
+    ],
+    "filesGlob": [
+        "./src/**/*.ts",
+        "./test/**/*.ts",
+        "!./node_modules/**/*.ts",
+        "typings/browser.d.ts"
+    ]
+}
