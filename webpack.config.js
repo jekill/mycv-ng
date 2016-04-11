@@ -19,7 +19,9 @@ const config = {
     module: {
         loaders: [
             {test: /\.ts$/, loaders: ['ts-loader'], exclude: /node_modules/},
-            {test: /\.html$/, loader: 'raw-loader'},
+            {test: /\.html$/, loader: 'raw-loader',exclude:[appSrcDirectory+'/index.html']},
+            // {test: /\.scss$/,  loaders: ['raw-loader', 'sass-loader?sourceMap']}
+            {test: /\.scss$/,  loaders: ['raw-loader', 'sass-loader?sourceMap']}
         ]
     },
     resolve: {
