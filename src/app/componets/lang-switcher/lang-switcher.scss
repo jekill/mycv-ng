@@ -1,0 +1,24 @@
+$flag-icon-css-path:'/assets/flags';
+@import "../../../../node_modules/flag-icon-css/sass/flag-icon";
+
+.lang-switcher{
+  display: inline-block;
+
+  //border: 1px solid red;
+  a{
+    display: inline-block;
+    margin: 0 5px;
+    padding: 2px 6px;
+    border-radius: 2px;
+    text-decoration: none;
+    cursor: pointer;
+    border: 1px solid transparent;
+    &:hover{
+      border: 1px dashed #AAA;
+      background: #E4E4E4;
+    }
+    &.active{
+      background: #CCC;
+    }
+  }
+}

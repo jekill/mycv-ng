@@ -12,10 +12,12 @@ This app is a try to make something useful for me that using Angular2, Redux, We
 
 Fork the repo and modify the sources as you like.
   
+```sh
 git clone https://github.com/jekill/mycv-ng.git
 cd mycv-ng
 npm install
-npm start
-see http://localhost:8080
-
-
+npm assets
+typings install
+npm server
+# see http://localhost:8080
+```
