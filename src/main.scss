@@ -9,3 +9,17 @@ body {
     padding-top: 60px;
   }
 }
+
+
+h2{
+  color: orangered;
+}
+
+.mycv-ng-link{
+  text-align: center;
+  margin: 20px 0 80px;
+  font-size: 1.2rem;
+  &,a{
+    color: #777;
+  }
+}

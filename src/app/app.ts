@@ -1,7 +1,8 @@
 import {Component, Inject} from "angular2/core";
 import {Translation}  from "./componets/trans/translation";
 import {LangSwitcher} from "./componets/lang-switcher/lang-switcher";
-import {Store} from "redux";
+import {Skill} from "./componets/skill/skill";
+import {Block} from "./componets/block/block";
 
 @Component({
     selector: 'app',
@@ -9,7 +10,9 @@ import {Store} from "redux";
     styles: [require('./app.scss')],
     directives: [
         Translation,
-        LangSwitcher
+        LangSwitcher,
+        Skill,
+        Block
     ]
 })
 export class App {

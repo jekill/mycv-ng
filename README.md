@@ -1,10 +1,10 @@
 # MyCV-ng
 
-This app is a try to make something useful for me that using Angular2, Redux, Webpack, HMR and other frontend technologies.
+This app is a try to make something useful for me that using Angular2, Redux, Webpack, HMR and other modern frontend technologies.
 
 ## My targets:
 
-- Create an application from scratch (no bootstrap templates used);
+- To create an application from scratch (no starter kit templates used);
 - Minimal dependencies;
 - Multi language application; 
 
