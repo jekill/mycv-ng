@@ -1,3 +1,11 @@
 <span class="skill label label-info">
-    <ng-content></ng-content>
+    <div *ngIf="name">
+        <ng-content select="name"></ng-content>
+        <div *ngIf="description" [hidden]="!showDescription">
+            <ng-content select="description"></ng-content>
+        </div>
+    </div>
+    <div *ngIf="!name">
+        <ng-content></ng-content>
+    </div>
 </span>

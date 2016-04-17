@@ -1,12 +1,11 @@
 import "es7-reflect-metadata";
 import "zone.js/dist/zone-node.js"
-import {bootstrap} from "angular2/bootstrap";
 import * as hmr from "angular2-hmr";
 
 import {App} from "./app/app";
 import {AppStore} from "./app/redux/store";
 import {provide} from "angular2/core";
-import {Store} from "redux";
+import {bootstrap} from "angular2/platform/browser";
 
 
 function startApplication() {

@@ -1,7 +1,7 @@
 import {Component, Inject} from "angular2/core";
 import {Translation}  from "./componets/trans/translation";
 import {LangSwitcher} from "./componets/lang-switcher/lang-switcher";
-import {Skill} from "./componets/skill/skill";
+import * as skills from "./componets/skill/skill";
 import {Block} from "./componets/block/block";
 
 @Component({
@@ -11,8 +11,10 @@ import {Block} from "./componets/block/block";
     directives: [
         Translation,
         LangSwitcher,
-        Skill,
-        Block
+        skills.Skill,
+        skills.Name,
+        skills.Description,
+        Block,
     ]
 })
 export class App {
