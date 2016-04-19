@@ -1,39 +1,51 @@
-import {Component, ContentChild, ElementRef, Inject, ViewChild} from "angular2/core";
+import {Component, ContentChild, ElementRef, Inject, ViewChild, HostListener, Input} from "angular2/core";
+import {Store} from "redux/index";
+import {AppState} from "../../redux/state";
 
 
-@Component({
-    selector: 'name',
-    template: '<ng-content></ng-content>'
-})
-export class Name {
-    aaa:string = "qweqweqwe";
-}
+
 
 @Component({
     selector: 'description',
     template: '<ng-content></ng-content>'
 })
-export class Description {
-
+export class SkillDescription {
+    public value:string;
+    constructor(@Inject(ElementRef) private el:ElementRef) {
+    }
+    ngOnInit() {
+        this.value = this.el.nativeElement.innerHTML;
+        console.log('++DESCRIPTION:', this.el.nativeElement.innerHTML);
+    }
 }
 
 @Component({
     selector: 'skill',
     template: require('./skill.html'),
     styles: [require('./skill.scss')],
-    directives: [Name,Description]
+    directives: [SkillDescription],
+    host: {
+        "(mouseenter)": 'onMouseEnter()',
+        "(mouseleave)": 'onMouseLeave()'
+    }
 })
 export class Skill {
-    @ContentChild(Name) name:Name;
-    @ContentChild(Description) description:Description;
+    @ContentChild(SkillDescription) description:SkillDescription;
+
+    @Input() name:string;
+    @Input() icon:string;
+    @Input() site:string;
+    @Input() isExpanded:boolean=true;
 
     showDescription:boolean = false;
 
-    constructor() {
+    constructor(@Inject('AppStore') private store:Store<AppState>) {
     }
+
 
     onMouseEnter() {
         this.showDescription = true;
+        console.log('enter');
     }
 
     onMouseLeave() {
@@ -42,11 +54,11 @@ export class Skill {
 
     ngAfterContentInit() {
         console.log("Name is:", this.name);
-        console.log("Description is:", this.description);
+        if (!this.name) {
+        }
     }
 
     ngAfterViewInit() {
-        console.log("Name is:", this.name);
 
     }
 }

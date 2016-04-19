@@ -1,7 +1,8 @@
 import {Component, Inject, OnDestroy} from "angular2/core";
 import {Store} from "redux/index";
-import {AppState, LangEnum} from "../../redux/state";
+import {AppState} from "../../redux/state";
 import {CreateChangeLangAction} from "../../redux/store";
+import {LangsList} from "../../types/langs-list";
 @Component({
     selector: 'lang-switcher',
     template: require('./lang-switcher.html'),
@@ -9,8 +10,8 @@ import {CreateChangeLangAction} from "../../redux/store";
 })
 export class LangSwitcher implements OnDestroy {
 
-    public currentLang = LangEnum.en;
-    public langs = LangEnum;
+    public currentLang = LangsList.en;
+    public langs = LangsList;
     private unsubscribe:Function;
 
     constructor(@Inject('AppStore') private store:Store<AppState>) {
@@ -25,7 +26,7 @@ export class LangSwitcher implements OnDestroy {
         this.unsubscribe();
     }
 
-    changeLang(newLang:LangEnum) {
+    changeLang(newLang:LangsList) {
         let act = CreateChangeLangAction(newLang);
         this.store.dispatch(<any>act);
     }

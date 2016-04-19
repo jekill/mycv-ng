@@ -1,7 +1,8 @@
 import {Component, Inject, OnDestroy} from "angular2/core";
-import {LangEnum, AppState} from "../../redux/state";
+import {AppState} from "../../redux/state";
 import {Store} from "redux";
 import {isUndefined} from "es7-reflect-metadata/dist/dist/helper/is-undefined";
+import {LangsList} from "../../types/langs-list";
 @Component({
     selector: 'trans',
     template: require('./translation.html'),
@@ -9,9 +10,9 @@ import {isUndefined} from "es7-reflect-metadata/dist/dist/helper/is-undefined";
 })
 export class Translation implements OnDestroy {
 
-    private currentLang:LangEnum;
+    private currentLang:LangsList;
     private lang;
-    private langs = LangEnum;
+    private langs = LangsList;
     private unscribe:Function;
 
     constructor(@Inject('AppStore') private store:Store<AppState>) {
@@ -28,7 +29,7 @@ export class Translation implements OnDestroy {
     }
 
     isCurrent(lang:string):boolean {
-        return typeof (LangEnum[lang])!=='undefined' && this.currentLang == LangEnum[lang];
+        return typeof (LangsList[lang])!=='undefined' && this.currentLang == LangsList[lang];
     }
 
 }

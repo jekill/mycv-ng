@@ -1,0 +1,12 @@
+<button class="btn btn-xs btn-success" >
+    <span *ngIf="!isExpanded">
+        <i class="fa fa-expand"></i>
+        <trans lang="en">Expand</trans>
+        <trans lang="ru">Раскрыть</trans>
+    </span>
+    <span *ngIf="isExpanded">
+        <i class="fa fa-compress"></i>
+        <trans lang="en">Collapse</trans>
+        <trans lang="ru">Свернуть</trans>
+    </span>
+</button>

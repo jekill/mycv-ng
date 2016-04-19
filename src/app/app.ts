@@ -3,6 +3,7 @@ import {Translation}  from "./componets/trans/translation";
 import {LangSwitcher} from "./componets/lang-switcher/lang-switcher";
 import * as skills from "./componets/skill/skill";
 import {Block} from "./componets/block/block";
+import {ExpandButton} from "./componets/expant-button/expand-button";
 
 @Component({
     selector: 'app',
@@ -12,9 +13,9 @@ import {Block} from "./componets/block/block";
         Translation,
         LangSwitcher,
         skills.Skill,
-        skills.Name,
-        skills.Description,
+        skills.SkillDescription,
         Block,
+        ExpandButton
     ]
 })
 export class App {

@@ -1,17 +1,14 @@
-export enum LangEnum{
-    en,
-    ru
-}
+import {LangsList} from "../types/langs-list";
 
 export interface AppState {
-    lang:LangEnum ;
+    lang:LangsList ;
     isSkillsBlockExpanded:boolean;
-    hoveredSkill:string;
+    blocks:{}
 }
 
 
 export const InitialState:AppState = {
-    lang: LangEnum.en,
+    lang: LangsList.en,
     isSkillsBlockExpanded: false,
-    hoveredSkill: ''
+    blocks: {}
 };

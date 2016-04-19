@@ -1,7 +1,7 @@
 import {CHANGE_LANG} from "../actions/action-types";
-import {LangEnum} from "../state";
+import {LangsList} from "../../types/langs-list";
 
-export function lang(state:LangEnum = LangEnum.en, action) {
+export function lang(state:LangsList = LangsList.en, action) {
     switch (action.type) {
         case CHANGE_LANG:
             return action.lang;
