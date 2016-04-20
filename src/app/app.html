@@ -33,9 +33,9 @@
             <a title="Skype: jeka.ru" href="skype:jeka.ru"><span class="fa fa-skype"></span> jeka.ru</a><br/>
             <a title="Site: jeka.ru" href="http://jeka.ru" target="_blank"><i class="fa fa-link"></i> http://jeka.ru</a>
         </div>
-    </div>
 
-    <div class="row">
+        <div class="clearfix"></div>
+
         <div class="sidebar col-xs-12 col-sm-4 col-md-3 col-lg-3 col-sm-push-8 col-md-push-9">
             <block id="profiles" sidebar="true" class="links" col="3" col-xs="12" push-sm="9">
                 <header>
@@ -54,6 +54,7 @@
                 </content>
             </block>
         </div>
+
 
         <block id="skills" #skillsBlock class="col-xs-12 col-sm-8 col-md-9 col-lg-9 col-sm-pull-4 col-md-pull-3" >
             <header>
@@ -77,8 +78,12 @@
                 <skill name="Symfony" icon="http://symfony.com/favicon.ico" site="http://symfony.com" [isExpanded]="skillsBlock.isExpanded">
                     <description>
                         <p><strong>1,2,3</strong> - versions.</p>
-                        <p>I started using the symfony framework when it was only 1.0 version (2007 year)</p>
-                        <p>Version 2 - was used since 2.0-beta (2012 year)</p>
+                        <p>
+                            I started using the symfony framework when it was only 1.0 version (2007 year)
+                        </p>
+                        <p>
+                            <code>Symfony 2</code> - was used since <strong>2.0-beta</strong> (2012 year)
+                        </p>
                     </description>
                 </skill>
                 <skill name="JavaScript" icon="/assets/img/js-ico.png"  [isExpanded]="skillsBlock.isExpanded"></skill>

@@ -16,10 +16,18 @@
   padding-left: 30px;
   margin-bottom: 20px;
   .name{
-    font-weight: bold;
+    font-weight: normal;
     margin-bottom: 10px;
     font-size: 1.7rem;
     line-height: 1.7rem;
+    .site{
+      color: #e0e0e0;
+      font-size: 0.8em;
+      margin-left: 6px;
+      &:hover{
+        color: #3399f3;
+      }
+    }
     img{
       margin-right: 10px;
       margin-bottom: 3px;

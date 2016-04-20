@@ -1,23 +1,24 @@
+<div #descriptionVal style="display: none">
+    <ng-content  select="description"></ng-content>
+</div>
 <div *ngIf="isExpanded" class="expanded skill">
     <div class="name">
         <img src="{{icon}}" width="16" height="16"/>
         {{name}}
+        <a href="{{site}}" *ngIf="site" class="site" target="_blank"><i class="fa fa-external-link-square"></i></a>
     </div>
-    <blockquote>
-        <ng-content select="description"></ng-content>
-    </blockquote>
+    <blockquote [innerHTML]="descriptionVal.innerHTML"></blockquote>
 </div>
 <div class="collapsed skill label label-info" *ngIf="!isExpanded">
     {{name}}
     <sikill-popover *ngIf="description" class="skill-description-tooltip popover" [style.display]="showDescription?'block':'none'">
 
-        <div class="popover-content">
-            <ng-content select="description"></ng-content>
-        </div>
+        <div class="popover-content" [innerHTML]="descriptionVal.innerHTML"></div>
         <div class="popover-title">
-            <a href="{{site}}" target="_blank">
-                <img src="{{icon}}" width="16" height="16"/> {{name}}
-                <i class="pull-right fa fa-external-link-square"></i></a>
+            <img src="{{icon}}" width="16" height="16"/> {{name}}
+            <a href="{{site}}" target="_blank" class="pull-right">
+                <i class="fa fa-external-link-square"></i>
+            </a>
         </div>
     </sikill-popover>
 </div>
