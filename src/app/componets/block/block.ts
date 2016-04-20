@@ -2,7 +2,7 @@ import {Component, ContentChild, QueryList, ContentChildren, Inject, Input} from
 import {AppState} from "../../redux/state";
 import {Store} from "redux/index";
 import {stat} from "fs";
-import {CreateSetExpandedAction, blocks, CreateAddNewBlockToStoreAction} from "./block.redux";
+import {blocks, CreateBlockUpdateAction} from "./block.redux";
 
 @Component({
     selector: 'block',
@@ -21,7 +21,7 @@ export class Block {
     }
 
     ngOnInit() {
-        this.store.dispatch(<any>CreateAddNewBlockToStoreAction(this.id, this.isExpanded));
+        this.store.dispatch(<any>CreateBlockUpdateAction(this.id, this.isExpanded));
 
         this.unscribe = this.store.subscribe(()=> {
             let state:AppState = this.store.getState();
@@ -34,7 +34,7 @@ export class Block {
     }
 
     handleExpandButton() {
-        let a = CreateSetExpandedAction(this.id, !this.isExpanded);
+        let a = CreateBlockUpdateAction(this.id, !this.isExpanded);
         this.store.dispatch(<any>a);
     }
 

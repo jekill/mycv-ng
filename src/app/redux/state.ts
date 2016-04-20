@@ -3,12 +3,19 @@ import {LangsList} from "../types/langs-list";
 export interface AppState {
     lang:LangsList ;
     isSkillsBlockExpanded:boolean;
-    blocks:{}
+    blocks:{},
+    skills:{},
+    popoverSkillDescription:{
+        skillName:string;
+        position:number[]
+    }
 }
 
 
 export const InitialState:AppState = {
     lang: LangsList.en,
     isSkillsBlockExpanded: false,
-    blocks: {}
+    blocks: {},
+    skills:{},
+    popoverSkillDescription: null
 };

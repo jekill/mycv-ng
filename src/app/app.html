@@ -1,6 +1,6 @@
 <div class="app">
     <lang-switcher></lang-switcher>
-
+    <skill-popover></skill-popover>
     <div class="row">
         <div class="col-xs-12 col-sm-8 col-md-9 col-lg-9">
             <div class="row">
@@ -24,7 +24,9 @@
                 </div>
             </div>
         </div>
-        <div class="sidebar col-xs-12 col-sm-4 col-md-3 col-lg-3">
+
+
+        <div class="contacts col-xs-5 col-sm-4 col-md-3 ">
             <h2 class="contacts">
                 <trans lang="en">Contact me:</trans>
                 <trans lang="ru">Связь:</trans>
@@ -34,9 +36,9 @@
             <a title="Site: jeka.ru" href="http://jeka.ru" target="_blank"><i class="fa fa-link"></i> http://jeka.ru</a>
         </div>
 
-        <div class="clearfix"></div>
+        <div class="clearfix visible-sm-block visible-md-block visible-lg-block"></div>
 
-        <div class="sidebar col-xs-12 col-sm-4 col-md-3 col-lg-3 col-sm-push-8 col-md-push-9">
+        <div class="contacts col-xs-7    col-sm-4 col-sm-push-8   col-md-3 col-md-push-9">
             <block id="profiles" sidebar="true" class="links" col="3" col-xs="12" push-sm="9">
                 <header>
                     <trans lang="en">Profiles</trans>
@@ -56,18 +58,18 @@
         </div>
 
 
-        <block id="skills" #skillsBlock class="col-xs-12 col-sm-8 col-md-9 col-lg-9 col-sm-pull-4 col-md-pull-3" >
+        <block id="skills" #skillsBlock class="col-xs-12    col-sm-8 col-sm-pull-4    col-md-9 col-md-pull-3" >
             <header>
                 <trans lang="en">Actual technologies</trans>
                 <trans lang="ru">Актуальные технологии</trans>
             </header>
             <content>
                 <p>
-                    <trans lang="en">What I have been using for an year</trans>
-                    <trans lang="ru">Что я использовал в течении года</trans>
+                    <trans lang="en">What I have been using for last year</trans>
+                    <trans lang="ru">Что я использовал в течении последнего года</trans>
                 </p>
 
-                <expand-button (click)="skillsBlock.handleExpandButton()" [isExpanded]="skillsBlock.isExpanded"></expand-button><br/><br/>
+                <expand-button class="pull-right" (click)="skillsBlock.handleExpandButton()" [isExpanded]="skillsBlock.isExpanded"></expand-button><br/><br/>
 
                 <skill name="PHP" icon="http://php.net/favicon.ico" site="http://php.net" [isExpanded]="skillsBlock.isExpanded">
                     <description>
@@ -87,11 +89,13 @@
                     </description>
                 </skill>
                 <skill name="JavaScript" icon="/assets/img/js-ico.png"  [isExpanded]="skillsBlock.isExpanded"></skill>
+                <skill name="TypeScript" [isExpanded]="skillsBlock.isExpanded"></skill>
+                <skill name="C#"  [isExpanded]="skillsBlock.isExpanded"></skill>
                 <skill name="Angular 2" icon="https://angular.io/resources/images/favicons/favicon-16x16.png"  [isExpanded]="skillsBlock.isExpanded"></skill>
                 <skill name="Angular 1" icon="https://angular.io/resources/images/favicons/favicon-16x16.png"  [isExpanded]="skillsBlock.isExpanded"></skill>
-                <skill name="Cordova" [isExpanded]="skillsBlock.isExpanded"></skill>
+                <skill name="Cordova" icon="http://cordova.apache.org/favicon.ico" [isExpanded]="skillsBlock.isExpanded"></skill>
                 <skill name="Ionic Framework"  [isExpanded]="skillsBlock.isExpanded"></skill>
-                <skill name="C#"  [isExpanded]="skillsBlock.isExpanded"></skill>
+                <skill name="Redux" [isExpanded]="skillsBlock.isExpanded"></skill>
                 <skill name="Unity3d"  [isExpanded]="skillsBlock.isExpanded"></skill>
                 <skill name="Ansible" [isExpanded]="skillsBlock.isExpanded"></skill>
                 <skill name="Docker" [isExpanded]="skillsBlock.isExpanded"></skill>
@@ -101,9 +105,9 @@
                 <skill name="KnockoutJS" [isExpanded]="skillsBlock.isExpanded"></skill>
                 <skill name="Linux" [isExpanded]="skillsBlock.isExpanded"></skill>
                 <skill name="Node.JS" [isExpanded]="skillsBlock.isExpanded"></skill>
-                <skill name="Redux" [isExpanded]="skillsBlock.isExpanded"></skill>
-                <skill name="TypeScript" [isExpanded]="skillsBlock.isExpanded"></skill>
                 <skill name="Bootstrap" [isExpanded]="skillsBlock.isExpanded"></skill>
+                <skill name="PHPUnit" [isExpanded]="skillsBlock.isExpanded"></skill>
+                <skill name="Codeception" [isExpanded]="skillsBlock.isExpanded"></skill>
             </content>
         </block>
     </div>

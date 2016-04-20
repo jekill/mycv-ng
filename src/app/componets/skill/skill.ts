@@ -1,8 +1,8 @@
 import {Component, ContentChild, ElementRef, Inject, ViewChild, HostListener, Input} from "angular2/core";
 import {Store} from "redux/index";
 import {AppState} from "../../redux/state";
-
-
+import {TYPE_SKILL_REGISTER_DESCRIPTION, CreateHoverSkillAction} from "./skill.reduxt";
+import {elementPosition} from "../../utils/dom-utils";
 
 
 @Component({
@@ -10,13 +10,10 @@ import {AppState} from "../../redux/state";
     template: '<ng-content></ng-content>'
 })
 export class SkillDescription {
-    public value:string;
-    constructor(@Inject(ElementRef) private el:ElementRef) {
+
+    constructor(@Inject(ElementRef) public el:ElementRef) {
     }
-    ngOnInit() {
-        this.value = this.el.nativeElement.innerHTML;
-        console.log('++DESCRIPTION:', this.el.nativeElement.innerHTML);
-    }
+
 }
 
 @Component({
@@ -35,30 +32,46 @@ export class Skill {
     @Input() name:string;
     @Input() icon:string;
     @Input() site:string;
-    @Input() isExpanded:boolean=true;
+    @Input() isExpanded:boolean = true;
 
-    showDescription:boolean = false;
 
-    constructor(@Inject('AppStore') private store:Store<AppState>) {
+    constructor(@Inject('AppStore') private store:Store<AppState>,
+                @Inject(ElementRef) private element:ElementRef) {
     }
 
 
     onMouseEnter() {
-        this.showDescription = true;
-        console.log('enter');
+
+        if (this.isExpanded) {
+            return;
+        }
+
+        const el = this.element.nativeElement;
+        const box = el.getBoundingClientRect();
+        let pos = elementPosition(el);
+        pos[0] += box.height;
+
+        this.store.dispatch(<any>CreateHoverSkillAction(this.name, pos, true));
     }
 
     onMouseLeave() {
-        this.showDescription = false;
+        if (this.isExpanded) {
+            return;
+        }
+        this.store.dispatch(<any>CreateHoverSkillAction(this.name, [0, 0], false));
     }
 
     ngAfterContentInit() {
-        console.log("Name is:", this.name);
-        if (!this.name) {
-        }
+        const descriptionEl = this.description ? this.description.el : null;
+        this.store.dispatch(<any>{
+            type: TYPE_SKILL_REGISTER_DESCRIPTION,
+            data: {
+                skillName: this.name,
+                descriptionElementRef: descriptionEl,
+                icon: this.icon,
+                site: this.site
+            }
+        });
     }
 
-    ngAfterViewInit() {
-
-    }
 }

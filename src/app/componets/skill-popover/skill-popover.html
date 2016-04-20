@@ -1,0 +1,21 @@
+<div class="popover"
+                style="display: block;"
+                [style.top]="position[0]+'px'"
+                [style.left]="position[1]+'px'"
+                *ngIf="skillData"
+
+>
+    <div class="popover-content" id="content" #content [innerHTML]="descriptionHTML()">
+
+    </div>
+    <div class="popover-title">
+        <img src="{{skillData.icon}}" width="16" height="16"/>
+        {{skillData.skillName}}
+
+        <!--
+        <a href="{{skillData.site}}" target="_blank" class="pull-right">
+            <i class="fa fa-external-link-square"></i>
+        </a>
+        -->
+    </div>
+</div>

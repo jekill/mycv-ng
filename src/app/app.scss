@@ -1,5 +1,5 @@
 .app {
-  position: relative;
+  //position: relative;
   lang-switcher {
     display: block;
     text-align: center;
@@ -18,6 +18,14 @@ h1 {
   font-size: 2rem;
 }
 
+.contacts{
+  .fa{
+    font-size: 2rem;
+    margin-right: 5px;
+    color: #777;
+    width: 2rem;
+  }
+}
 .links{
   ul,li{
     padding: 0;

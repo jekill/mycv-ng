@@ -1,8 +1,7 @@
 import {Block} from "./block";
 import {Action} from "redux/index";
 
-const BLOCK_ADD_NEW_BLOCK = "BLOCK_ADD_NEW_BLOCK";
-const BLOCK_SET_EXPANDED = "BLOCK_SET_EXPANDED";
+const BLOCK_UPDATE_BLOCK = "BLOCK_UPDATE_BLOCK";
 
 interface BlockState {
     id:string;
@@ -19,29 +18,26 @@ interface BlockAction extends Action {
  * @param action
  */
 export function blocks(blocks = {}, action:BlockAction) {
-    let o = {};
+
     switch (action.type) {
-        case BLOCK_ADD_NEW_BLOCK:
-            o[action.blockState.id] = action.blockState;
-            return Object.assign({}, blocks, o);
-        case BLOCK_SET_EXPANDED:
-            let blockState = Object.assign({}, blocks[action.blockState.id], {isExpanded: action.blockState.isExpanded});
+        case BLOCK_UPDATE_BLOCK:
+            let blockState =
+                Object.assign(
+                    {},
+                    typeof(blocks[action.blockState.id]) === 'object' ? blocks[action.blockState.id] : {},
+                    action.blockState
+                );
+            let o = {};
             o[blockState.id] = blockState;
             return Object.assign({}, blocks, o);
         default:
             return blocks;
     }
 }
-export function CreateAddNewBlockToStoreAction(id:string, isExpanded:boolean):BlockAction {
+export function CreateBlockUpdateAction(id:string, isExpanded:boolean):BlockAction {
     return {
-        type: BLOCK_ADD_NEW_BLOCK,
+        type: BLOCK_UPDATE_BLOCK,
         blockState: {id, isExpanded}
     };
 }
 
-export function CreateSetExpandedAction(id:string, isExpanded:boolean):BlockAction {
-    return {
-        type: BLOCK_SET_EXPANDED,
-        blockState: {id, isExpanded}
-    };
-}
