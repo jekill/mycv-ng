@@ -5,6 +5,7 @@ import * as skills from "./componets/skill/skill";
 import {Block} from "./componets/block/block";
 import {ExpandButton} from "./componets/expant-button/expand-button";
 import {SkillPopover} from "./componets/skill-popover/skill-popover";
+import {SkillRef} from "./componets/skill-ref/skill-ref";
 
 @Component({
     selector: 'app',
@@ -17,7 +18,8 @@ import {SkillPopover} from "./componets/skill-popover/skill-popover";
         skills.SkillDescription,
         Block,
         ExpandButton,
-        SkillPopover
+        SkillPopover,
+        SkillRef
     ]
 })
 export class App {
