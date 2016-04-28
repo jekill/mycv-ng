@@ -26,14 +26,16 @@
         </div>
 
 
-        <div class="contacts col-xs-5 col-sm-4 col-md-3 ">
+        <div class="contacts links col-xs-5 col-sm-4 col-md-3 ">
             <h2 class="contacts">
                 <trans lang="en">Contact me:</trans>
                 <trans lang="ru">Связь:</trans>
             </h2>
-            <a href="mailto:info@jeka.ru"><span class="fa fa-envelope"></span> info@jeka.ru</a><br/>
-            <a title="Skype: jeka.ru" href="skype:jeka.ru"><span class="fa fa-skype"></span> jeka.ru</a><br/>
-            <a title="Site: jeka.ru" href="http://jeka.ru" target="_blank"><i class="fa fa-link"></i> http://jeka.ru</a>
+            <ul class="links">
+                <li><a href="mailto:info@jeka.ru"><span class="fa fa-envelope"></span> info@jeka.ru</a></li>
+                <li><a title="Skype: jeka.ru" href="skype:jeka.ru"><span class="fa fa-skype"></span> jeka.ru</a></li>
+                <li><a title="Site: jeka.ru" href="http://jeka.ru" target="_blank"><i class="fa fa-link"></i> http://jeka.ru</a></li>
+            </ul>
         </div>
 
         <div class="clearfix visible-sm-block visible-md-block visible-lg-block"></div>
@@ -65,50 +67,59 @@
             </header>
             <content>
                 <p>
-                    <trans lang="en">What I have been using for last year</trans>
-                    <trans lang="ru">Что я использовал в течении последнего года</trans>
+                    <trans lang="en">What I have been using in my projects for last year</trans>
+                    <trans lang="ru">Что я использовал в рабочих проектах за последний года</trans>
                 </p>
 
-                <expand-button class="" (click)="skillsBlock.handleExpandButton()" [isExpanded]="skillsBlock.isExpanded"></expand-button>
-                <br/><br/>
+                <div class="row">
+                    <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
+                        <skill name="PHP" icon="http://php.net/favicon.ico" site="http://php.net" [isExpanded]="skillsBlock.isExpanded">
+                            <description>
+                                <trans lang="en">Very big experience of working with PHP, it is about of 15 years.</trans>
+                                <trans lang="ru">Очень большой опыт работы с PHP, около 15 лет.</trans>
+                            </description>
+                        </skill>
+                        <skill name="Symfony" icon="http://symfony.com/favicon.ico" site="http://symfony.com" [isExpanded]="skillsBlock.isExpanded">
+                            <description>
+                                <p><strong>1,2,3</strong> - versions.</p>
+                                <p>
+                                    I started using the symfony framework when it was only 1.0 version (2007 year)
+                                </p>
+                                <p>
+                                    <code>Symfony 2</code> - have been using since <strong>2.0-beta version</strong> (2012 year)
+                                </p>
+                            </description>
+                        </skill>
+                        <skill name="JavaScript" icon="/assets/img/js-ico.png" [isExpanded]="skillsBlock.isExpanded"></skill>
+                        <skill name="TypeScript" [isExpanded]="skillsBlock.isExpanded"></skill>
+                        <skill name="C#" [isExpanded]="skillsBlock.isExpanded"></skill>
+                        <skill name="Angular 2" icon="https://angular.io/resources/images/favicons/favicon-16x16.png" [isExpanded]="skillsBlock.isExpanded"></skill>
+                        <skill name="Angular 1" icon="https://angular.io/resources/images/favicons/favicon-16x16.png" [isExpanded]="skillsBlock.isExpanded"></skill>
+                        <skill name="Cordova" icon="http://cordova.apache.org/favicon.ico" [isExpanded]="skillsBlock.isExpanded"></skill>
+                        <skill name="Ionic Framework" [isExpanded]="skillsBlock.isExpanded"></skill>
+                        <skill name="Redux" [isExpanded]="skillsBlock.isExpanded"></skill>
+                        <skill name="Unity3d" [isExpanded]="skillsBlock.isExpanded"></skill>
+                        <skill name="Ansible" [isExpanded]="skillsBlock.isExpanded"></skill>
+                        <skill name="Docker" [isExpanded]="skillsBlock.isExpanded"></skill>
+                        <skill name="MySQL" [isExpanded]="skillsBlock.isExpanded"></skill>
+                        <skill name="CouchDB" [isExpanded]="skillsBlock.isExpanded"></skill>
+                        <skill name="PouchDB" [isExpanded]="skillsBlock.isExpanded"></skill>
+                        <skill name="KnockoutJS" [isExpanded]="skillsBlock.isExpanded"></skill>
+                        <skill name="Linux" [isExpanded]="skillsBlock.isExpanded"></skill>
+                        <skill name="Node.JS" [isExpanded]="skillsBlock.isExpanded"></skill>
+                        <skill name="PHPUnit" [isExpanded]="skillsBlock.isExpanded"></skill>
+                        <skill name="Codeception" [isExpanded]="skillsBlock.isExpanded"></skill>
+                        <skill name="Bootstrap" [isExpanded]="skillsBlock.isExpanded"></skill>
+                        <skill name="SASS" [isExpanded]="skillsBlock.isExpanded"></skill>
+                        <skill name="LESS" [isExpanded]="skillsBlock.isExpanded"></skill>
+                        <skill name="Nginx" [isExpanded]="skillsBlock.isExpanded"></skill>
+                        <skill name="Capistrano" [isExpanded]="skillsBlock.isExpanded"></skill>
 
-                <skill name="PHP" icon="http://php.net/favicon.ico" site="http://php.net" [isExpanded]="skillsBlock.isExpanded">
-                    <description>
-                        <trans lang="en">Very big experience of working with PHP, it is about of 15 years.</trans>
-                        <trans lang="ru">Очень большой опыт работы с PHP, около 15 лет.</trans>
-                    </description>
-                </skill>
-                <skill name="Symfony" icon="http://symfony.com/favicon.ico" site="http://symfony.com" [isExpanded]="skillsBlock.isExpanded">
-                    <description>
-                        <p><strong>1,2,3</strong> - versions.</p>
-                        <p>
-                            I started using the symfony framework when it was only 1.0 version (2007 year)
-                        </p>
-                        <p>
-                            <code>Symfony 2</code> - have been using since <strong>2.0-beta version</strong> (2012 year)
-                        </p>
-                    </description>
-                </skill>
-                <skill name="JavaScript" icon="/assets/img/js-ico.png" [isExpanded]="skillsBlock.isExpanded"></skill>
-                <skill name="TypeScript" [isExpanded]="skillsBlock.isExpanded"></skill>
-                <skill name="C#" [isExpanded]="skillsBlock.isExpanded"></skill>
-                <skill name="Angular 2" icon="https://angular.io/resources/images/favicons/favicon-16x16.png" [isExpanded]="skillsBlock.isExpanded"></skill>
-                <skill name="Angular 1" icon="https://angular.io/resources/images/favicons/favicon-16x16.png" [isExpanded]="skillsBlock.isExpanded"></skill>
-                <skill name="Cordova" icon="http://cordova.apache.org/favicon.ico" [isExpanded]="skillsBlock.isExpanded"></skill>
-                <skill name="Ionic Framework" [isExpanded]="skillsBlock.isExpanded"></skill>
-                <skill name="Redux" [isExpanded]="skillsBlock.isExpanded"></skill>
-                <skill name="Unity3d" [isExpanded]="skillsBlock.isExpanded"></skill>
-                <skill name="Ansible" [isExpanded]="skillsBlock.isExpanded"></skill>
-                <skill name="Docker" [isExpanded]="skillsBlock.isExpanded"></skill>
-                <skill name="MySQL" [isExpanded]="skillsBlock.isExpanded"></skill>
-                <skill name="CouchDB" [isExpanded]="skillsBlock.isExpanded"></skill>
-                <skill name="PouchDB" [isExpanded]="skillsBlock.isExpanded"></skill>
-                <skill name="KnockoutJS" [isExpanded]="skillsBlock.isExpanded"></skill>
-                <skill name="Linux" [isExpanded]="skillsBlock.isExpanded"></skill>
-                <skill name="Node.JS" [isExpanded]="skillsBlock.isExpanded"></skill>
-                <skill name="Bootstrap" [isExpanded]="skillsBlock.isExpanded"></skill>
-                <skill name="PHPUnit" [isExpanded]="skillsBlock.isExpanded"></skill>
-                <skill name="Codeception" [isExpanded]="skillsBlock.isExpanded"></skill>
+                    </div>
+                    <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 text-center">
+                        <expand-button (click)="skillsBlock.handleExpandButton()" [isExpanded]="skillsBlock.isExpanded"></expand-button>
+                    </div>
+                </div>
             </content>
         </block>
         <block id="skills_other" #skillsBlockOther class="col-xs-12 col-sm-8 col-md-9">
@@ -118,51 +129,62 @@
             </header>
             <content>
                 <p>
-                    <trans lang="en">What I have been using for last year</trans>
-                    <trans lang="ru">Что я использовал в течении последнего года</trans>
+                    <trans lang="en">The other technologies that I am skilled, but use them seldom or were often used in the past</trans>
+                    <trans lang="ru">Что я использовал </trans>
                 </p>
 
-                <expand-button class="" (click)="skillsBlockOther.handleExpandButton()" [isExpanded]="skillsBlockOther.isExpanded"></expand-button>
-                <br/><br/>
-
-                <skill name="Perl" icon="http://php.net/favicon.ico" site="http://php.net" [isExpanded]="skillsBlockOther.isExpanded">
-                    <description>
-                        <trans lang="en">Very big experience of working with PHP, it is about of 15 years.</trans>
-                        <trans lang="ru">Очень большой опыт работы с PHP, около 15 лет.</trans>
-                    </description>
-                </skill>
-                <skill name="ASP.NET" icon="http://symfony.com/favicon.ico" site="http://symfony.com" [isExpanded]="skillsBlockOther.isExpanded">
-                    <description>
-                        <p><strong>1,2,3</strong> - versions.</p>
-                        <p>
-                            I started using the symfony framework when it was only 1.0 version (2007 year)
-                        </p>
-                        <p>
-                            <code>Symfony 2</code> - have been using since <strong>2.0-beta version</strong> (2012 year)
-                        </p>
-                    </description>
-                </skill>
-                <skill name="JavaScript" icon="/assets/img/js-ico.png" [isExpanded]="skillsBlockOther.isExpanded"></skill>
-                <skill name="TypeScript" [isExpanded]="skillsBlockOther.isExpanded"></skill>
-                <skill name="C#" [isExpanded]="skillsBlockOther.isExpanded"></skill>
-
+                <div class="row">
+                    <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
+                        <skill name="MongoDB" [isExpanded]="skillsBlockOther.isExpanded"></skill>
+                        <skill name="Python" [isExpanded]="skillsBlockOther.isExpanded"></skill>
+                        <skill name="Ruby" [isExpanded]="skillsBlockOther.isExpanded"></skill>
+                        <skill name="ASP.NET" icon="http://symfony.com/favicon.ico" site="http://symfony.com" [isExpanded]="skillsBlockOther.isExpanded"></skill>
+                        <skill name="MSSQL" [isExpanded]="skillsBlockOther.isExpanded"></skill>
+                        <skill name="Puppet" [isExpanded]="skillsBlockOther.isExpanded"></skill>
+                        <skill name="XSLT" [isExpanded]="skillsBlockOther.isExpanded"></skill>
+                        <skill name="Perl" icon="http://php.net/favicon.ico" site="http://php.net" [isExpanded]="skillsBlockOther.isExpanded"></skill>
+                    </div>
+                    <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 text-center">
+                        <expand-button (click)="skillsBlockOther.handleExpandButton()" [isExpanded]="skillsBlockOther.isExpanded"></expand-button>
+                    </div>
+                </div>
             </content>
         </block>
 
-        <block class="col-xs-12">
+        <block class="col-xs-12 col-sm-12 col-md-9">
             <header>
                 <trans lang="en">Experience</trans>
                 <trans lang="ru">Опыт работы</trans>
             </header>
             <content>
-                <working-period dates="2001-2003">
-                    <company>Avalanche</company>
-                    <position>PHP/Perl developer</position>
-                    <description>
-                        Had created many websites as a
-                        <skill-ref>Perl</skill-ref> / <skill-ref>PHP</skill-ref>
-                        developer.
-                    </description>
+                <working-period dates="2012-2016" company="IntellectDesign LLC" position="CTO | Team Lead | PHP/Symfony, JavaScript, FullStack developer">
+                    <skill-ref>PHP</skill-ref>,
+                    <skill-ref>Symfony</skill-ref>,
+                    <skill-ref>JavaScript</skill-ref>,
+                    <skill-ref>TypeScript</skill-ref>,
+                    <skill-ref>KnockoutJS</skill-ref>,
+                    <skill-ref>Angular 1</skill-ref>,
+                    <skill-ref>Angular 2</skill-ref>
+                </working-period>
+                <working-period dates="2008-2012" company="HotSupport LLC" position="PHP/Symfony developer | Team Lead | Director | Co-owner">
+                    Had created many websites as a
+                    <skill-ref>PHP</skill-ref>,
+                    <skill-ref>JavaScript</skill-ref>
+                    developer.
+                </working-period>
+                <working-period dates="2003-2008" company="XMedia LLC" position="PHP/C#/ASP.NET developer | Team Lead">
+                    <p>
+                        Participated in the development and supporting of many e-commerce music and video websites.<br/>
+                        Like: getmovies.ru, mp3search.ru, mp3.ua, gomusic.ru, and other...
+                    </p>
+                    <p>The main technologies used in this period:
+                        <skill-ref>PHP</skill-ref>,
+                        <skill-ref>C#</skill-ref>,
+                        <skill-ref>ASP.NET</skill-ref>
+                    </p>
+                </working-period>
+                <working-period dates="2001-2003" company="Avalanche CJSC" position="PHP/Perl developer">
+                    Had created many websites as a <skill-ref>Perl</skill-ref> / <skill-ref>PHP</skill-ref> developer.
                 </working-period>
             </content>
         </block>

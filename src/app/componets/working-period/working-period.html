@@ -1,0 +1,12 @@
+<div>
+    <h3>
+        <time class="dates" *ngIf="dates">{{dates}}</time>
+        @ <span class="company" *ngIf="company">{{company}}</span>
+    </h3>
+    <div class="position" *ngIf="position">
+        <span class="val">{{position}}</span>
+    </div>
+    <blockquote>
+        <ng-content></ng-content>
+    </blockquote>
+</div>

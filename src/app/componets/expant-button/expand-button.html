@@ -1,12 +1,7 @@
-<button class="btn btn-xs btn-success" >
-    <span *ngIf="!isExpanded">
-        <i class="fa fa-expand"></i>
-        <trans lang="en">Expand</trans>
-        <trans lang="ru">Раскрыть</trans>
-    </span>
-    <span *ngIf="isExpanded">
-        <i class="fa fa-compress"></i>
-        <trans lang="en">Collapse</trans>
-        <trans lang="ru">Свернуть</trans>
-    </span>
+<button class="btn btn-sm btn-default" title="{{isExpanded?'Collapse':'Expand'}}">
+    <i class="fa fa-{{isExpanded?'compress':'expand'}}"></i>
 </button>
+<span class="see-details">
+    <trans lang="en">See details</trans>
+    <trans lang="ru">Развёрнуто</trans>
+</span>

@@ -6,6 +6,7 @@ import {Block} from "./componets/block/block";
 import {ExpandButton} from "./componets/expant-button/expand-button";
 import {SkillPopover} from "./componets/skill-popover/skill-popover";
 import {SkillRef} from "./componets/skill-ref/skill-ref";
+import {WorkingPeriod} from "./componets/working-period/working-period";
 
 @Component({
     selector: 'app',
@@ -19,14 +20,9 @@ import {SkillRef} from "./componets/skill-ref/skill-ref";
         Block,
         ExpandButton,
         SkillPopover,
-        SkillRef
+        SkillRef,
+        WorkingPeriod
     ]
 })
 export class App {
-    private name:string = "Hello Jeka!!!";
-
-    constructor() {
-    }
-
-
 }

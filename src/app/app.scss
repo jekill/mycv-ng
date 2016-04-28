@@ -18,19 +18,32 @@ h1 {
   font-size: 2rem;
 }
 
-.contacts{
-  .fa{
+.contacts {
+  .fa {
     font-size: 2rem;
     margin-right: 5px;
     color: #777;
     width: 2rem;
   }
 }
-.links{
-  ul,li{
+
+.links {
+
+  ul, li {
     padding: 0;
     margin: 0;
     list-style: none;
+
+  }
+  ul {
+    padding-left: 30px;
+    .fa {
+      margin-left: -30px;
+    }
+    a {
+      word-break: break-all;
+      //word-wrap: break-word;
+    }
   }
 }
 
