@@ -11,6 +11,9 @@ import {skills, popoverSkillDescription} from "../componets/skill/skill.reduxt";
 
 const rootReducer = combineReducers({lang, isSkillsBlockExpanded, blocks,skills,popoverSkillDescription});
 
+declare var window:{
+    devToolsExtension?:any;
+}
 // export const AppStore:Store =
 export const AppStore = createStore(rootReducer, InitialState,
     window.devToolsExtension ? window.devToolsExtension() : f => f

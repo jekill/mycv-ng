@@ -1,8 +1,7 @@
 import {Component, Inject, OnDestroy} from "angular2/core";
-import {AppState} from "../../redux/state";
-import {Store} from "redux";
-import {isUndefined} from "es7-reflect-metadata/dist/dist/helper/is-undefined";
 import {LangsList} from "../../types/langs-list";
+import {AppState} from "../../redux/state";
+import {Store} from "redux/index";
 @Component({
     selector: 'trans',
     template: require('./translation.html'),

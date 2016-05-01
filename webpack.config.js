@@ -1,8 +1,9 @@
+
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const appSrcDirectory = __dirname + "/src";
-
+const loaders  = require('./webpack/loaders');
 
 /**
  * @type {webpack.Configuration}
@@ -17,12 +18,7 @@ const config = {
         path: './build'
     },
     module: {
-        loaders: [
-            {test: /\.ts$/, loaders: ['ts-loader'], exclude: /node_modules/},
-            {test: /\.html$/, loader: 'raw-loader',exclude:[appSrcDirectory+'/index.html']},
-            // {test: /\.scss$/,  loaders: ['raw-loader', 'sass-loader?sourceMap']}
-            {test: /\.scss$/,  loaders: ['raw-loader', 'sass-loader?sourceMap']}
-        ]
+        loaders: loaders.allLoaders(appSrcDirectory)
     },
     resolve: {
         root: appSrcDirectory,

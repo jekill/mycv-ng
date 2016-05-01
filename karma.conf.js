@@ -1,6 +1,10 @@
 // Karma configuration
 // Generated on Tue Apr 26 2016 16:07:33 GMT+0300 (MSK)
 
+const loaders = require('./webpack/loaders');
+const appSrcDirectory = __dirname + "/src";
+
+
 module.exports = function (config) {
     config.set({
 
@@ -10,7 +14,7 @@ module.exports = function (config) {
 
         // frameworks to use
         // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
-        frameworks: ['jasmine'],
+        frameworks: ['jasmine','chai'],
 
 
         // list of files / patterns to load in the browser
@@ -33,7 +37,7 @@ module.exports = function (config) {
         // preprocess matching files before serving them to the browser
         // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
         preprocessors: {
-            './src/tests.ts':[
+            './src/**/*.ts':[
                 'webpack',
                 'sourcemap',
                 'coverage'
@@ -45,6 +49,19 @@ module.exports = function (config) {
         // possible values: 'dots', 'progress'
         // available reporters: https://npmjs.org/browse/keyword/karma-reporter
         reporters: ['progress'],
+
+        webpack:{
+            entry: './src/tests.ts',
+            devtool: 'source-map',
+            verbose: true,
+            debug:true,
+            resolve: {
+                extensions: ['', '.webpack.js', '.web.js','.ts', '.js']
+            },
+            module: {
+                loaders: loaders.allLoaders(appSrcDirectory)
+            }
+        },
 
 
         // web server port

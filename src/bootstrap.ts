@@ -9,14 +9,14 @@ import {bootstrap} from "angular2/platform/browser";
 
 
 function startApplication() {
-    return bootstrap(App,[provide('AppStore',{useValue:AppStore})]).catch((err)=>console.log(err));
+    return bootstrap(App, [provide('AppStore', {useValue: AppStore})]).catch((err)=>console.log(err));
 }
 
-let isDev=true;
+let isDev = true;
 
 if (isDev) {
     hmr.hotModuleReplacement(startApplication, module);
-}else{
+} else {
     document.addEventListener('DOMContentLoaded', startApplication);
 }
 

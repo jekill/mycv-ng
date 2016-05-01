@@ -1,9 +1,14 @@
 {
   "ambientDependencies": {
+    "chai": "registry:dt/chai#3.4.0+20160317120654",
     "es6-shim": "registry:dt/es6-shim#0.31.2+20160317120654",
     "node": "registry:dt/node#4.0.0+20160330064709",
+    "redux": "registry:dt/redux#3.3.1+20160326112656",
     "source-map": "registry:dt/source-map#0.0.0+20160317120654",
     "uglify-js": "registry:dt/uglify-js#2.6.1+20160316155526",
     "webpack": "registry:dt/webpack#1.12.9+20160321060707"
+  },
+  "ambientDevDependencies": {
+    "jasmine": "registry:dt/jasmine#2.2.0+20160412134438"
   }
 }
