@@ -1,7 +1,8 @@
-import {mkNoopenerRelAttributeValue} from "./dom-utils";
+import {elementPosition} from "./dom-utils";
 describe('check mk attributes', ()=> {
     it("1", ()=> {
-        let res = mkNoopenerRelAttributeValue(null);
-        chai.expect('noopener noreferrer').to.equal(res);
+        let el = new HTMLElement();
+        let res = elementPosition(el);
+        chai.expect(res).to.equal([0, 0]);
     })
 });

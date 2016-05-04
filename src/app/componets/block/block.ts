@@ -7,6 +7,7 @@ import {CreateBlockUpdateAction} from "./block.redux";
     selector: 'block',
     template: require('./block.html'),
     queries: {},
+    styles:[require('./block.scss')]
 })
 export class Block {
 
