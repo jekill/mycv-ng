@@ -13,3 +13,19 @@ export function elementPosition(el:HTMLElement) {
     const left = box.left + scrollLeft - clientLeft;
     return [Math.round(top), Math.round(left)]
 }
+
+/**
+ * needs for <a target=_blank ...
+ */
+export function mkNoopenerRelAttributeValue(rel?:string) {
+    if (!rel) {
+        return "noopener noreferrer";
+    }
+    if (!rel.includes('noopener')) {
+        rel += ' noopener';
+    }
+    if (!rel.includes('noreferrer')) {
+        rel += ' noreferrer';
+    }
+    return rel;
+}

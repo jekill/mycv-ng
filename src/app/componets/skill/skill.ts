@@ -1,4 +1,4 @@
-import {Component, ContentChild, ElementRef, Inject, ViewChild, HostListener, Input} from "angular2/core";
+import {Component, ContentChild, ElementRef, Inject, ViewChild, HostListener, Input} from "@angular/core";
 import {Store} from "redux/index";
 import {AppState} from "../../redux/state";
 import {TYPE_SKILL_REGISTER_DESCRIPTION, CreateHoverSkillAction} from "./skill.reduxt";

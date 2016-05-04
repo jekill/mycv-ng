@@ -1,4 +1,4 @@
-import {Component, Inject} from "angular2/core";
+import {Component, Inject} from "@angular/core";
 import {Translation}  from "./componets/trans/translation";
 import {LangSwitcher} from "./componets/lang-switcher/lang-switcher";
 import * as skills from "./componets/skill/skill";

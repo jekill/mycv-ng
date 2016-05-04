@@ -1,8 +1,7 @@
-import {Component, ContentChild, QueryList, ContentChildren, Inject, Input} from "angular2/core";
+import {Component, QueryList, ContentChildren, Inject, Input} from "@angular/core";
 import {AppState} from "../../redux/state";
 import {Store} from "redux/index";
-import {stat} from "fs";
-import {blocks, CreateBlockUpdateAction} from "./block.redux";
+import {CreateBlockUpdateAction} from "./block.redux";
 
 @Component({
     selector: 'block',

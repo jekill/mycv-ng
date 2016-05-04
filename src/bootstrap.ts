@@ -4,18 +4,30 @@ import * as hmr from "angular2-hmr";
 
 import {App} from "./app/app";
 import {AppStore} from "./app/redux/store";
-import {provide} from "angular2/core";
-import {bootstrap} from "angular2/platform/browser";
+import {provide} from "@angular/core";
+import {bootstrap} from "@angular/platform-browser-dynamic";
+import {mkNoopenerRelAttributeValue} from "./app/utils/dom-utils";
 
 
 function startApplication() {
-    return bootstrap(App, [provide('AppStore', {useValue: AppStore})]).catch((err)=>console.log(err));
+    return bootstrap(App, [provide('AppStore', {useValue: AppStore})]).catch((err)=>console.log(err))
+        .then(function () {
+                let links = document.getElementsByTagName('a');
+                for (let i = 0; i < links.length; i++) {
+                    let a:HTMLAnchorElement = links.item(i);
+                    if (a.target === '_blank') {
+                        a.rel = mkNoopenerRelAttributeValue(a.rel);
+                    }
+                }
+            }
+        );
 }
 
 let isDev = true;
 
 if (isDev) {
     hmr.hotModuleReplacement(startApplication, module);
+
 } else {
     document.addEventListener('DOMContentLoaded', startApplication);
 }

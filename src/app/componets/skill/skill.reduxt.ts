@@ -1,6 +1,6 @@
 import {Action} from "redux/index";
 import {SkillDescription} from "./skill";
-import {ElementRef} from "angular2/core";
+import {ElementRef} from "@angular/core";
 export const TYPE_SKILL_HOVER_ON = "TYPE_SKILL_HOVER_ON";
 export const TYPE_SKILL_HOVER_OFF = "TYPE_SKILL_HOVER_OFF";
 export const TYPE_SKILL_REGISTER_DESCRIPTION = "TYPE_SKILL_REGISTER_DESCRIPTION";

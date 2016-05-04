@@ -1,4 +1,4 @@
-import {Component, Inject, ElementRef} from "angular2/core";
+import {Component, Inject, ElementRef} from "@angular/core";
 import {elementPosition} from "../../utils/dom-utils";
 import {AppState} from "../../redux/state";
 import {Store} from "redux/index";

@@ -1,4 +1,4 @@
-import {Component, Inject, OnDestroy} from "angular2/core";
+import {Component, Inject, OnDestroy} from "@angular/core";
 import {Store} from "redux/index";
 import {AppState} from "../../redux/state";
 import {CreateChangeLangAction} from "../../redux/store";

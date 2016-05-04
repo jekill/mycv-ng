@@ -1,11 +1,11 @@
-import {Component, Inject, DynamicComponentLoader, ViewChild, ElementRef, Injector} from "angular2/core";
 import {AppState} from "../../redux/state";
+import {ElementRef,Inject,Component} from "@angular/core"
 import {Store} from "redux/index";
-import {SkillDescription} from "../skill/skill";
+
 @Component({
     selector: 'skill-popover',
     template: require('./skill-popover.html'),
-    styles: [require('./skill-popover.scss')]
+    styles: [require('./skill-popover.scss')],
 })
 export class SkillPopover {
     skillData:{
