@@ -1,9 +1,8 @@
-import {Component, Inject, ElementRef} from "@angular/core";
+import {Component, Input, Inject, ElementRef} from "@angular/core";
 import {elementPosition} from "../../utils/dom-utils";
 import {AppState} from "../../redux/state";
 import {Store} from "redux/index";
 import {CreateHoverSkillAction} from "../skill/skill.reduxt";
-import {stat} from "fs";
 @Component({
     selector: 'skill-ref',
     template: require('./skill-ref.html'),
@@ -15,7 +14,8 @@ import {stat} from "fs";
 })
 export class SkillRef {
 
-    private skillName:string;
+    @Input()
+    private name:string;
     private isRegistered:boolean = false;
     private unsubscribe:Function;
 
@@ -24,41 +24,44 @@ export class SkillRef {
     }
 
     checkRegistered() {
-        if (this.skillName) {
+        if (this.name) {
             const state = this.store.getState();
-            this.isRegistered = typeof (state.skills[this.skillName]) != 'undefined' && state.skills[this.skillName];
+            this.isRegistered = typeof (state.skills[this.name]) != 'undefined' && state.skills[this.name];
         }
     }
 
-    ngOnDestroy(){
+    ngOnDestroy() {
         this.unsubscribe();
     }
-    ngOnInit(){
-        this.unsubscribe=this.store.subscribe(()=>{
-             this.checkRegistered();
+
+    ngOnInit() {
+        this.unsubscribe = this.store.subscribe(()=> {
+            this.checkRegistered();
         });
     }
 
-    ngAfterContentInit() {
-        this.skillName = this.element.nativeElement.innerText;
-    }
+    // ngAfterContentInit() {
+    //     if (!this.name) {
+    //         this.name = this.element.nativeElement.innerText;
+    //         this.checkRegistered();
+    //     }
+    // }
 
     onMouseEnter() {
-        if (!this.skillName) {
+        if (!this.name) {
             return;
         }
         const el = this.element.nativeElement;
         const box = el.getBoundingClientRect();
         let pos = elementPosition(el);
         pos[0] += box.height;
-
-        this.store.dispatch(<any>CreateHoverSkillAction(this.skillName, pos, true));
+        this.store.dispatch(<any>CreateHoverSkillAction(this.name, pos, true));
     }
 
     onMouseLeave() {
-        if (!this.skillName) {
+        if (!this.name) {
             return;
         }
-        this.store.dispatch(<any>CreateHoverSkillAction(this.skillName, [0, 0], false));
+        this.store.dispatch(<any>CreateHoverSkillAction(this.name, [0, 0], false));
     }
 }

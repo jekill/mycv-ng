@@ -6,7 +6,13 @@
     <div class="position" *ngIf="position">
         <span class="val">{{position}}</span>
     </div>
+    <div class="main-technologies" *ngIf="mainTechnologiesList && mainTechnologiesList.length>0">
+        Основные технологии
+        <skill-ref *ngFor="let skillName of mainTechnologiesList" [name]="skillName"></skill-ref>
+    </div>
     <blockquote>
         <ng-content></ng-content>
     </blockquote>
+
+
 </div>

@@ -1,0 +1,31 @@
+:host {
+  dl {
+    dt {
+      margin-bottom: 10px;
+    }
+    dd{
+      margin-bottom: 20px;
+      font-size: 0.8em;
+    }
+  }
+}
+
+.position{
+  color: forestgreen;
+}
+
+.main-technologies{
+  //background: #EEE;
+  //padding: 5px 10px;
+  skill-ref{
+    //margin: 0 2px;
+    &:after{
+      content: ', ';
+    }
+    &:last-child:after{
+      content: '';
+    }
+  }
+}
+
+

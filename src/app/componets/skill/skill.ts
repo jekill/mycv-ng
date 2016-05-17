@@ -50,6 +50,7 @@ export class Skill {
         const box = el.getBoundingClientRect();
         let pos = elementPosition(el);
         pos[0] += box.height;
+        console.log(pos);
 
         this.store.dispatch(<any>CreateHoverSkillAction(this.name, pos, true));
     }

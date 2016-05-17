@@ -7,6 +7,7 @@ describe('first', () => {
         chai.expect(wp.company).to.eq('qwe');
     });
 
+    
     it('works-2',()=>{
         chai.expect(2).to.eq('2');
     })

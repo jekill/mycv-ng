@@ -27,9 +27,9 @@ export function blocks(blocks = {}, action:BlockAction) {
                     typeof(blocks[action.blockState.id]) === 'object' ? blocks[action.blockState.id] : {},
                     action.blockState
                 );
-            let o = {};
-            o[blockState.id] = blockState;
-            return Object.assign({}, blocks, o);
+            return Object.assign({}, blocks, {
+                [blockState.id]: blockState
+            });
         default:
             return blocks;
     }
