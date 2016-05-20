@@ -3,26 +3,30 @@
     dt {
       margin-bottom: 10px;
     }
-    dd{
+    dd {
       margin-bottom: 20px;
       font-size: 0.8em;
+      .technologies-list {
+        color: #999;
+        margin-top: 5px;
+      }
     }
   }
 }
 
-.position{
+.position {
   color: forestgreen;
 }
 
-.main-technologies{
+.main-technologies {
   //background: #EEE;
   //padding: 5px 10px;
-  skill-ref{
+  skill-ref {
     //margin: 0 2px;
-    &:after{
+    &:after {
       content: ', ';
     }
-    &:last-child:after{
+    &:last-child:after {
       content: '';
     }
   }
