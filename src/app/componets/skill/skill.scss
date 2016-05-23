@@ -1,4 +1,8 @@
-:host
+:host{
+  code{
+    white-space: nowrap;
+  }
+}
 
 .collapsed {
   &.skill {

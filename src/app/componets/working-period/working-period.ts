@@ -1,13 +1,15 @@
 import {Component, Input} from "@angular/core";
 import {Observable} from "rxjs/Observable";
 import {SkillRef} from "../skill-ref/skill-ref";
+import {Translation} from "../trans/translation";
 
 @Component({
     selector: 'working-period',
     template: require('./working-period.html'),
     styles: [require('./working-period.scss')],
     directives:[
-        SkillRef
+        SkillRef,
+        Translation
     ]
 })
 export class WorkingPeriod {

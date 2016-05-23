@@ -7,7 +7,8 @@
         <span class="val">{{position}}</span>
     </div>
     <div class="main-technologies" *ngIf="mainTechnologiesList && mainTechnologiesList.length>0">
-        Основные технологии
+        <trans lang="en">Main technologies:</trans>
+        <trans lang="ru">Основные технологии:</trans>
         <skill-ref *ngFor="let skillName of mainTechnologiesList" [name]="skillName"></skill-ref>
     </div>
     <blockquote>
