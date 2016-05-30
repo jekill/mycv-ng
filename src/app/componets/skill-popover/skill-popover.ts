@@ -15,7 +15,7 @@ export class SkillPopover {
         descriptionElementRef:ElementRef
     };
     position:number[] = [0, 0];
-    unscribe:Function;
+    unsubscribe:Function;
 
     constructor(@Inject('AppStore') private store:Store<AppState>) {
 
@@ -29,11 +29,11 @@ export class SkillPopover {
     }
 
     ngOnDestroy() {
-        this.unscribe();
+        this.unsubscribe();
     }
 
     ngOnInit() {
-        this.unscribe = this.store.subscribe(()=> {
+        this.unsubscribe = this.store.subscribe(()=> {
             const state = this.store.getState();
             const data = state.popoverSkillDescription;
 

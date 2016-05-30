@@ -61,7 +61,51 @@
         </div>
 
 
-        <block id="skills" #skillsBlock class="col-xs-12    col-sm-8 col-sm-pull-4    col-md-9 col-md-pull-3">
+        <block id="specialisation" #skillsBlock class="col-xs-12    col-sm-8 col-sm-pull-4   col-md-9 col-md-pull-3">
+            <!--<header>-->
+                <!--<trans lang="en">About me</trans>-->
+                <!--<trans lang="ru">Обо мне</trans>-->
+            <!--</header>-->
+            <content>
+
+                <trans lang="en">
+                    <p>
+                        I have big experience in web development it is more then 15 years.
+                    </p>
+                    <p>
+                        The main technologies that I use to reach targets are:
+                        <skill-ref name="PHP"></skill-ref>/<skill-ref name="Symfony"></skill-ref> и
+                        <skill-ref name="JavaScript"></skill-ref>/<skill-ref name="Angular"></skill-ref>
+                    </p>
+                    <p>
+                        I always ready to know something new.
+                        I follow the latest IT innovations, and I understand the feasibility of using them for specific cases.<br/>
+                    </p>
+                    <p>
+                        Also I have reach experience in different business areas and understanding business goals.
+                    </p>
+                </trans>
+                <trans lang="ru">
+                    <p>
+                        Имею большой опыт работы в облати разработки вебприложений, более 15 лет
+                    </p>
+                    <p>
+                        Базовыми технологиями, которые я использую для достижения целей, являются:
+                        <skill-ref name="PHP"></skill-ref>/<skill-ref name="Symfony"></skill-ref> и
+                        <skill-ref name="JavaScript"></skill-ref>/<skill-ref name="Angular"></skill-ref>.
+                    </p>
+                    <p>
+                        Всегда готов изучать новое, постояно слежу за новинками IT мира и понимаю целесообразность их применения в конкретных случаях.<br/>
+                        Последние пару лет моей работы, в основном, были посвящены запуску различных стартапов.<br/>
+                        Понимаю потребности бизнеса.
+                    </p>
+                </trans>
+            </content>
+        </block>
+
+        <div class="clearfix"></div>
+
+        <block id="skills" #skillsBlock class="col-xs-12 col-sm-8 col-md-9 ">
             <header>
                 <trans lang="en">Actual technologies</trans>
                 <trans lang="ru">Актуальные технологии</trans>
@@ -82,10 +126,11 @@
                 </div>
             </content>
         </block>
+
         <block id="skills_other" #skillsBlockOther class="col-xs-12 col-sm-8 col-md-9">
             <header>
-                <trans lang="en">Other</trans>
-                <trans lang="ru">Другие</trans>
+                <trans lang="en">My other skills</trans>
+                <trans lang="ru">Другие навыки</trans>
             </header>
             <content>
                 <p>
@@ -104,6 +149,7 @@
             </content>
         </block>
 
+
         <block class="col-xs-12 col-sm-12 col-md-9">
             <header>
                 <trans lang="en">Social activity</trans>
@@ -111,7 +157,9 @@
             </header>
             <content>
                 <div class="media">
-                    <a class="media-left" href="http://www.meetup.com/Symfoniacs/" target="_blank"><img src="/assets/img/symfony-logo.png" width="64" height="64"/></a>
+                    <a class="media-left" href="http://www.meetup.com/Symfoniacs/" target="_blank">
+                        <img src="/assets/img/symfoniacs-logo.png" width="110" height="110"/>
+                    </a>
                     <div class="media-body">
                         <p>
                             <trans lang="en">
@@ -134,7 +182,7 @@
                 </div>
                 <div class="media">
                     <a class="media-left" href="http://moscowjs.ru/" target="_blank" rel="noopener noreferrer">
-                        <img src="http://moscowjs.ru/images/logo.svg" width="32" height="32" style="margin: 0 16px"/>
+                        <img src="http://moscowjs.ru/images/logo.svg" width="64" height="64" style="margin: 0 23px"/>
                     </a>
                     <div class="media-body">
                         <p>
