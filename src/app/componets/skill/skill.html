@@ -1,6 +1,6 @@
 <div *ngIf="isExpanded" class="expanded skill">
     <div class="name">
-        <img src="{{icon?icon:'/assets/img/0.gif'}}" width="16" height="16" class="skill-icon" [class.no-icon]="!icon"/>
+        <img src="{{icon?icon:'assets/img/0.gif'}}" width="16" height="16" class="skill-icon" [class.no-icon]="!icon"/>
         {{name}}
         <a href="{{site}}" *ngIf="site" class="site" target="_blank"><i class="fa fa-external-link-square"></i></a>
     </div>
