@@ -1,9 +1,10 @@
-
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const appSrcDirectory = __dirname + "/src";
-const loaders  = require('./webpack/loaders');
+const loaders = require('./webpack/loaders');
+
+const isProdMode = process.env['NODE_ENV'] === 'prod';
 
 /**
  * @type {webpack.Configuration}
@@ -24,11 +25,21 @@ const config = {
         root: appSrcDirectory,
         extensions: ["", ".webpack.js", ".web.js", ".js", '.ts']
     },
-    plugins:[
+    plugins: [
         new HtmlWebpackPlugin({
-            template:'index.html',
-            inject:'body'
-        })
+            template: 'index.html',
+            inject: 'body'
+        }),
+        new webpack.DefinePlugin({
+            __IS_PROD_MODE__: isProdMode
+        }),
+        new webpack.optimize.UglifyJsPlugin({
+            mangle: {
+                keep_fnames: true
+            }
+        }),
+        new webpack.optimize.DedupePlugin()
+
     ]
 };
 

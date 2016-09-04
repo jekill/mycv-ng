@@ -6,7 +6,7 @@
   "scripts": {
     "assets": "rm -fr ./src/assets/flags && cp -rp ./node_modules/flag-icon-css/flags ./src/assets/flags",
     "server": "webpack-dev-server --hot --config webpack.config.js --inline --progress --profile --colors --watch --display-error-details --display-cached --content-base src/",
-    "build":"webpack --progress --profile --colors --display-error-details --display-cached && cp -rp ./src/assets ./build/",
+    "build":"NODE_ENV=prod webpack --progress --profile --colors --display-error-details --display-cached && cp -rp ./src/assets ./build/",
     "test": "karma start"
   },
   "author": "Evgeny P Fomin",
