@@ -20,7 +20,6 @@ export class SkillDescription {
     selector: 'skill',
     template: require('./skill.html'),
     styles: [require('./skill.scss')],
-    directives: [SkillDescription],
     host: {
         "(mouseenter)": 'onMouseEnter()',
         "(mouseleave)": 'onMouseLeave()'

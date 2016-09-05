@@ -1,16 +1,16 @@
-import {Component, Inject, OnDestroy} from "@angular/core";
+import {Component, Inject, OnDestroy, Input} from "@angular/core";
 import {LangsList} from "../../types/langs-list";
 import {AppState} from "../../redux/state";
 import {Store} from "redux/index";
 @Component({
     selector: 'trans',
-    template: require('./translation.html'),
-    properties: ['lang']
+    template: require('./translation.html')
 })
 export class Translation implements OnDestroy {
 
+    @Input() public lang;
+
     private currentLang:LangsList;
-    private lang;
     private langs = LangsList;
     private unscribe:Function;
 

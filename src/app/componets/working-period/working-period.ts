@@ -6,11 +6,7 @@ import {Translation} from "../trans/translation";
 @Component({
     selector: 'working-period',
     template: require('./working-period.html'),
-    styles: [require('./working-period.scss')],
-    directives:[
-        SkillRef,
-        Translation
-    ]
+    styles: [require('./working-period.scss')]
 })
 export class WorkingPeriod {
     @Input() dates:string;
@@ -24,7 +20,6 @@ export class WorkingPeriod {
     constructor() {
         this.mainTechnologiesList = Observable.create();
     }
-
 
     @Input()
     set mainTechnologies(list:string) {

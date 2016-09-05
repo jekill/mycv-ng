@@ -6,6 +6,20 @@ const loaders = require('./webpack/loaders');
 
 const isProdMode = process.env['NODE_ENV'] === 'prod';
 
+
+var devPlugins = [];
+
+if (isProdMode) {
+    devPlugins = [
+        new webpack.optimize.UglifyJsPlugin({
+            mangle: {
+                keep_fnames: true
+            }
+        }),
+        new webpack.optimize.DedupePlugin()
+    ];
+}
+
 /**
  * @type {webpack.Configuration}
  */
@@ -33,13 +47,7 @@ const config = {
         new webpack.DefinePlugin({
             __IS_PROD_MODE__: isProdMode
         }),
-        new webpack.optimize.UglifyJsPlugin({
-            mangle: {
-                keep_fnames: true
-            }
-        }),
-        new webpack.optimize.DedupePlugin()
-
+        ...devPlugins
     ]
 };
 

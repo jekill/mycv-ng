@@ -1,23 +1,23 @@
-import "es7-reflect-metadata";
-import "zone.js/dist/zone-node.js"
-import * as hmr from "angular2-hmr";
-import {provide, enableProdMode} from "@angular/core";
-import {bootstrap} from "@angular/platform-browser-dynamic";
+import "zone.js/dist/zone-node.js";
+import "core-js/shim";
 
-import {App} from "./app/app";
-import {AppStore} from "./app/redux/store";
+import {enableProdMode} from "@angular/core";
+
+import {AppModule} from "./app/app.module";
+import {platformBrowserDynamic} from "@angular/platform-browser-dynamic";
 
 function startApplication() {
-    return bootstrap(App, [provide('AppStore', {useValue: AppStore})]).catch((err)=>console.log(err));
+    const platform = platformBrowserDynamic();
+    return platform.bootstrapModule(AppModule);
+    // return bootstrap(App, [provide('AppStore', {useValue: AppStore})]).catch((err)=>console.log(err));
 }
 
-
-if (!__IS_PROD_MODE__) {
-    hmr.hotModuleReplacement(startApplication, module);
-} else {
+if (__IS_PROD_MODE__) {
     enableProdMode();
-    document.addEventListener('DOMContentLoaded', startApplication);
 }
+
+document.addEventListener('DOMContentLoaded', startApplication);
+
 
 declare var __IS_PROD_MODE__: boolean;
 

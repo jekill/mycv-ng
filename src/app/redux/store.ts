@@ -14,7 +14,7 @@ const rootReducer = combineReducers({lang, isSkillsBlockExpanded, blocks,skills,
 declare var window:{
     devToolsExtension?:any;
 }
-// export const AppStore:Store =
+
 export const AppStore = createStore(rootReducer, InitialState,
     window.devToolsExtension ? window.devToolsExtension() : f => f
 );

@@ -1,4 +1,6 @@
 import {WorkingPeriod} from "./working-period";
+import "jasmine";
+
 
 describe('first', () => {
     it('works', ()=> {
