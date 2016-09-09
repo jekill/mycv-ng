@@ -1,4 +1,4 @@
 <div class="lang-switcher">
-    <a (click)="changeLang(langs.en)" [class.active]="currentLang==langs.en"><span class="flag-icon flag-icon-us"></span> EN</a> /
-    <a (click)="changeLang(langs.ru)" [class.active]="currentLang==langs.ru"><span class="flag-icon flag-icon-ru"></span> RU</a>
+    <a (click)="changeLang(langs.en)" [class.active]="(currentLang|async)==langs.en"><span class="flag-icon flag-icon-us"></span> EN</a> /
+    <a (click)="changeLang(langs.ru)" [class.active]="(currentLang|async)==langs.ru"><span class="flag-icon flag-icon-ru"></span> RU</a>
 </div>

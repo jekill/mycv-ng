@@ -1,34 +1,31 @@
-import {Component, Inject, OnDestroy, Input} from "@angular/core";
+import {Component, Inject, Input} from "@angular/core";
 import {LangsList} from "../../types/langs-list";
 import {AppState} from "../../redux/state";
-import {Store} from "redux/index";
+import {NgRedux, select} from "ng2-redux";
+import {Observable} from "rxjs";
 @Component({
     selector: 'trans',
     template: require('./translation.html')
 })
-export class Translation implements OnDestroy {
+export class Translation {
 
     @Input() public lang;
 
-    private currentLang:LangsList;
+    private langObservable;
+    private currentLang = LangsList.en;
     private langs = LangsList;
-    private unscribe:Function;
 
-    constructor(@Inject('AppStore') private store:Store<AppState>) {
-
-        this.currentLang = store.getState().lang;
-
-        this.unscribe = store.subscribe(()=> {
-            this.currentLang = store.getState().lang;
-        })
+    constructor(@Inject(NgRedux) private store: NgRedux<AppState>) {
     }
 
-    ngOnDestroy():any {
-        return this.unscribe();
+    ngOnInit() {
+        this.langObservable = this.store.select('lang');
+        this.langObservable.subscribe(v=>this.currentLang = v);
     }
 
-    isCurrent(lang:string):boolean {
-        return typeof (LangsList[lang])!=='undefined' && this.currentLang == LangsList[lang];
+
+    isCurrent(lang: string): boolean {
+        return typeof (LangsList[lang]) !== 'undefined' && this.currentLang == LangsList[lang];
     }
 
 }

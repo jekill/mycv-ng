@@ -2,6 +2,7 @@ import {Component, QueryList, ContentChildren, Inject, Input} from "@angular/cor
 import {AppState} from "../../redux/state";
 import {Store} from "redux/index";
 import {CreateBlockUpdateAction} from "./block.redux";
+import {NgRedux} from "ng2-redux";
 
 @Component({
     selector: 'block',
@@ -16,7 +17,7 @@ export class Block {
     @ContentChildren('skill') expandableComponents:QueryList<{isExpand:boolean}>;
     private unscribe:Function;
 
-    constructor(@Inject('AppStore') private store:Store<AppState>) {
+    constructor(@Inject(NgRedux) private store:NgRedux<AppState>) {
 
     }
 

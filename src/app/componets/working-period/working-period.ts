@@ -12,9 +12,6 @@ export class WorkingPeriod {
     @Input() dates:string;
     @Input() company:string;
     @Input() position:string;
-    // @Input() mainTechnologies:string='qwe';
-
-    // public mainTechnologiesList:Observable<string>;
     mainTechnologiesList:string[]=[];
 
     constructor() {

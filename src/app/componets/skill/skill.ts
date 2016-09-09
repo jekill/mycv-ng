@@ -3,6 +3,7 @@ import {Store} from "redux/index";
 import {AppState} from "../../redux/state";
 import {TYPE_SKILL_REGISTER_DESCRIPTION, CreateHoverSkillAction} from "./skill.reduxt";
 import {elementPosition} from "../../utils/dom-utils";
+import {NgRedux} from "ng2-redux";
 
 
 @Component({
@@ -34,8 +35,8 @@ export class Skill {
     @Input() isExpanded:boolean = true;
 
 
-    constructor(@Inject('AppStore') private store:Store<AppState>,
-                @Inject(ElementRef) private element:ElementRef) {
+    constructor(@Inject(NgRedux) private store:NgRedux<AppState>,
+    @Inject(ElementRef) private element:ElementRef) {
     }
 
 

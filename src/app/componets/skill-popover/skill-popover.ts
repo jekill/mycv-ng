@@ -1,6 +1,7 @@
-import {AppState} from "../../redux/state";
-import {ElementRef,Inject,Component} from "@angular/core"
+import {AppState, PopoverSkillDescription} from "../../redux/state";
+import {ElementRef, Inject, Component} from "@angular/core"
 import {Store} from "redux/index";
+import {NgRedux} from "ng2-redux";
 
 @Component({
     selector: 'skill-popover',
@@ -8,16 +9,15 @@ import {Store} from "redux/index";
     styles: [require('./skill-popover.scss')],
 })
 export class SkillPopover {
-    skillData:{
-        skillName:string,
-        icon:string,
-        site:string,
-        descriptionElementRef:ElementRef
+    skillData: {
+        skillName: string,
+        icon: string,
+        site: string,
+        descriptionElementRef: ElementRef
     };
-    position:number[] = [0, 0];
-    unsubscribe:Function;
+    position: number[] = [0, 0];
 
-    constructor(@Inject('AppStore') private store:Store<AppState>) {
+    constructor(@Inject(NgRedux) private store: NgRedux<AppState>) {
 
     }
 
@@ -28,23 +28,18 @@ export class SkillPopover {
         return '';
     }
 
-    ngOnDestroy() {
-        this.unsubscribe();
-    }
 
     ngOnInit() {
-        this.unsubscribe = this.store.subscribe(()=> {
-            const state = this.store.getState();
-            const data = state.popoverSkillDescription;
-
-            if (!data) {
+        this.store.select('popoverSkillDescription').subscribe((popoverSkillDescription:PopoverSkillDescription)=> {
+            var state = this.store.getState();
+            if (!popoverSkillDescription) {
                 this.clear();
                 return;
             }
 
-            if (state.skills[data.skillName]) {
-                this.position = data.position;
-                this.skillData = state.skills[data.skillName];
+            if (state.skills[popoverSkillDescription.skillName]) {
+                this.position = popoverSkillDescription.position;
+                this.skillData = state.skills[popoverSkillDescription.skillName];
             } else {
                 this.clear();
             }

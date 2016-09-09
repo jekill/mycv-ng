@@ -3,6 +3,7 @@ import {elementPosition} from "../../utils/dom-utils";
 import {AppState} from "../../redux/state";
 import {Store} from "redux/index";
 import {CreateHoverSkillAction} from "../skill/skill.reduxt";
+import {NgRedux} from "ng2-redux";
 @Component({
     selector: 'skill-ref',
     template: require('./skill-ref.html'),
@@ -19,7 +20,7 @@ export class SkillRef {
     private isRegistered:boolean = false;
     private unsubscribe:Function;
 
-    constructor(@Inject('AppStore') private store:Store<AppState>,
+    constructor(@Inject(NgRedux) private store:NgRedux<AppState>,
                 @Inject(ElementRef) private element:ElementRef) {
     }
 
