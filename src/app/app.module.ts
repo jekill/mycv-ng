@@ -1,4 +1,4 @@
-import {NgModule, ApplicationRef, Inject} from "@angular/core";
+import {NgModule, Inject} from "@angular/core";
 import {BrowserModule} from "@angular/platform-browser";
 import {App} from "./app.component";
 import {WorkingPeriod} from "./componets/working-period/working-period";
@@ -9,10 +9,11 @@ import {Block} from "./componets/block/block";
 import * as skills from "./componets/skill/skill";
 import {LangSwitcher} from "./componets/lang-switcher/lang-switcher";
 import {Translation} from "./componets/trans/translation";
-import {createNewHosts, removeNgStyles} from "@angularclass/hmr";
 import {AppStore} from "./redux/store";
 import {NgRedux, NgReduxModule} from "ng2-redux";
 import {AppState} from "./redux/state";
+import {SkillPopoverInline} from "./componets/skill-popover-inline/skill-popover-inline";
+import {ValueGenerator} from "./services/value-generator";
 
 // import from "shi"
 
@@ -31,10 +32,14 @@ import {AppState} from "./redux/state";
         Block,
         ExpandButton,
         SkillPopover,
+        SkillPopoverInline,
         SkillRef,
         WorkingPeriod
     ],
-    bootstrap: [App]
+    bootstrap: [App],
+    providers:[
+        ValueGenerator
+    ]
 })
 
 export class AppModule {
@@ -43,36 +48,36 @@ export class AppModule {
         store.provideStore(AppStore);
     }
 
-    hmrOnInit(store) {
-        console.log('HMR store', store);
-
-        // inject AppStore here and update it
-        // this.AppStore.update(store)
-    }
-
-    hmrOnDestroy(store) {
-
-        console.log('on destroy HMR store', store);
-        // var cmpLocation = this.appRef.components.map(cmp => cmp.location.nativeElement);
-        // // recreate elements
-        // store.disposeOldHosts = createNewHosts(cmpLocation)
-        // // inject your AppStore and grab state then set it on store
-        // // var appState = this.AppStore.get()
-        // store.OHHAI = 'yolo'
-        // // Object.assign(store, appState)
-        // const state = this.appStore.getState();
-        // const newState = Object.assign({},state,store) ;
-
-        // // remove styles
-        removeNgStyles();
-
-    }
-
-    hmrAfterDestroy(store) {
-        console.log('hmrAfterDestroy',store);
-        // // display new elements
-        // store.disposeOldHosts()
-        // delete store.disposeOldHosts;
-        // // anything you need done the component is removed
-    }
+    // hmrOnInit(store) {
+    //     console.log('HMR store', store);
+    //
+    //     // inject AppStore here and update it
+    //     // this.AppStore.update(store)
+    // }
+    //
+    // hmrOnDestroy(store) {
+    //
+    //     console.log('on destroy HMR store', store);
+    //     // var cmpLocation = this.appRef.components.map(cmp => cmp.location.nativeElement);
+    //     // // recreate elements
+    //     // store.disposeOldHosts = createNewHosts(cmpLocation)
+    //     // // inject your AppStore and grab state then set it on store
+    //     // // var appState = this.AppStore.get()
+    //     // store.OHHAI = 'yolo'
+    //     // // Object.assign(store, appState)
+    //     // const state = this.appStore.getState();
+    //     // const newState = Object.assign({},state,store) ;
+    //
+    //     // // remove styles
+    //     removeNgStyles();
+    //
+    // }
+    //
+    // hmrAfterDestroy(store) {
+    //     console.log('hmrAfterDestroy',store);
+    //     // // display new elements
+    //     // store.disposeOldHosts()
+    //     // delete store.disposeOldHosts;
+    //     // // anything you need done the component is removed
+    // }
 }

@@ -1,1 +1,4 @@
-<span [class.registered]="isRegistered">{{name}}</span>
+<span [class.registered]="isRegistered" [id]="identifier">
+    {{name}}
+    <skill-popover-inline *ngIf="isRegistered" [name]="name" [class.hidden]="!isHover"></skill-popover-inline>
+</span>

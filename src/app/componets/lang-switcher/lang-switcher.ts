@@ -1,9 +1,10 @@
-import {Component, Inject, OnDestroy} from "@angular/core";
+import {Component, Inject} from "@angular/core";
 import {AppState} from "../../redux/state";
 import {CreateChangeLangAction} from "../../redux/store";
 import {LangsList} from "../../types/langs-list";
+
 import {NgRedux, select} from "ng2-redux";
-import {Observable} from "rxjs";
+
 @Component({
     selector: 'lang-switcher',
     template: require('./lang-switcher.html'),

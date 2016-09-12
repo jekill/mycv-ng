@@ -5,7 +5,8 @@ export interface AppState {
     isSkillsBlockExpanded: boolean,
     blocks: {},
     skills: {},
-    popoverSkillDescription: PopoverSkillDescription
+    popoverSkillDescription: PopoverSkillDescription,
+    hoveredElement:string
 }
 
 export interface PopoverSkillDescription {
@@ -19,5 +20,6 @@ export const InitialState: AppState = {
     isSkillsBlockExpanded: false,
     blocks: {},
     skills: {},
-    popoverSkillDescription: null
+    popoverSkillDescription: null,
+    hoveredElement:''
 };

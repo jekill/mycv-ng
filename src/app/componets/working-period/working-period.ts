@@ -1,7 +1,4 @@
 import {Component, Input} from "@angular/core";
-import {Observable} from "rxjs/Observable";
-import {SkillRef} from "../skill-ref/skill-ref";
-import {Translation} from "../trans/translation";
 
 @Component({
     selector: 'working-period',
@@ -15,7 +12,7 @@ export class WorkingPeriod {
     mainTechnologiesList:string[]=[];
 
     constructor() {
-        this.mainTechnologiesList = Observable.create();
+        // this.mainTechnologiesList = Observable.create();
     }
 
     @Input()

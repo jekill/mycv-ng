@@ -1,9 +1,13 @@
 import {Component, Input, Inject, ElementRef} from "@angular/core";
 import {elementPosition} from "../../utils/dom-utils";
 import {AppState} from "../../redux/state";
-import {Store} from "redux/index";
 import {CreateHoverSkillAction} from "../skill/skill.reduxt";
-import {NgRedux} from "ng2-redux";
+import {NgRedux, select} from "ng2-redux";
+import {ValueGenerator} from "../../services/value-generator";
+import {CreateAction_HoverElement} from "../../redux/actions/common-actions";
+import {HoverableElement} from "../../mixins/hoverable-element";
+import {applyMixins} from "rxjs/util/applyMixins";
+
 @Component({
     selector: 'skill-ref',
     template: require('./skill-ref.html'),
@@ -13,15 +17,19 @@ import {NgRedux} from "ng2-redux";
         "(mouseleave)": 'onMouseLeave()'
     }
 })
-export class SkillRef {
+export class SkillRef extends HoverableElement {
 
-    @Input()
-    private name:string;
-    private isRegistered:boolean = false;
-    private unsubscribe:Function;
+    @Input() private name: string;
 
-    constructor(@Inject(NgRedux) private store:NgRedux<AppState>,
-                @Inject(ElementRef) private element:ElementRef) {
+    private isRegistered: boolean = false;
+    public identifier: string;
+
+    @select('skills') private skills;
+
+    constructor(@Inject(NgRedux) public store: NgRedux<AppState>,
+                @Inject(ElementRef) private element: ElementRef,
+                @Inject(ValueGenerator) private generator: ValueGenerator) {
+        super(store);
     }
 
     checkRegistered() {
@@ -31,38 +39,33 @@ export class SkillRef {
         }
     }
 
-    ngOnDestroy() {
-        this.unsubscribe();
-    }
-
     ngOnInit() {
-        this.unsubscribe = this.store.subscribe(()=> {
-            this.checkRegistered();
-        });
+        this.identifier = this.name + '_' + this.generator.nextNumber();
+        this.skills.subscribe(() => this.checkRegistered());
+        super.ngOnInit();
     }
 
-    // ngAfterContentInit() {
-    //     if (!this.name) {
-    //         this.name = this.element.nativeElement.innerText;
-    //         this.checkRegistered();
-    //     }
+    // onMouseEnter() {
+    //     this.store.dispatch(CreateAction_HoverElement(this.identifier, true));
+    //
+    //     // this.isHover = true;
+    //     // if (!this.name) {
+    //     //     return;
+    //     // }
+    //     // const el = this.element.nativeElement;
+    //     // const box = el.getBoundingClientRect();
+    //     // let pos = elementPosition(el);
+    //     // pos[0] += box.height;
+    //     // this.store.dispatch(<any>CreateHoverSkillAction(this.name, pos, true));
     // }
-
-    onMouseEnter() {
-        if (!this.name) {
-            return;
-        }
-        const el = this.element.nativeElement;
-        const box = el.getBoundingClientRect();
-        let pos = elementPosition(el);
-        pos[0] += box.height;
-        this.store.dispatch(<any>CreateHoverSkillAction(this.name, pos, true));
-    }
-
-    onMouseLeave() {
-        if (!this.name) {
-            return;
-        }
-        this.store.dispatch(<any>CreateHoverSkillAction(this.name, [0, 0], false));
-    }
+    //
+    // onMouseLeave() {
+    //     this.store.dispatch(CreateAction_HoverElement(this.identifier, false));
+    //
+    //     // this.isHover = false;
+    //     // if (!this.name) {
+    //     //     return;
+    //     // }
+    //     // this.store.dispatch(<any>CreateHoverSkillAction(this.name, [0, 0], false));
+    // }
 }

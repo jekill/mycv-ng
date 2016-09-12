@@ -8,6 +8,7 @@
         <ng-content  select="description"></ng-content>
     </blockquote>
 </div>
-<div class="collapsed skill label label-info" *ngIf="!isExpanded">
+<div class="collapsed skill label label-info" *ngIf="!isExpanded" [id]="identifier">
     {{name}}
+    <skill-popover-inline [name]="name" [class.hidden]="!isHover"></skill-popover-inline>
 </div>

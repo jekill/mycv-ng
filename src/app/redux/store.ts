@@ -7,22 +7,33 @@ import {isSkillsBlockExpanded} from "./reducers/skills-block-reducer";
 import {blocks} from "../componets/block/block.redux";
 import {LangsList} from "../types/langs-list";
 import {skills, popoverSkillDescription} from "../componets/skill/skill.reduxt";
+import {hoveredElement} from "./reducers/hovered-element-reducer";
 
-const rootReducer = combineReducers({lang, isSkillsBlockExpanded, blocks,skills,popoverSkillDescription});
+const rootReducer = combineReducers({
+    lang,
+    isSkillsBlockExpanded,
+    blocks,
+    skills,
+    popoverSkillDescription,
+    hoveredElement
+});
 
-export const AppStore:Store<any> = createStore(rootReducer, InitialState,
+export const AppStore: Store<any> = createStore(rootReducer, InitialState,
     window.devToolsExtension ? window.devToolsExtension() : f => f
 );
 
+window.__store = AppStore;
+
 // Action generators:
-export function CreateChangeLangAction(newLang:LangsList) {
+export function CreateChangeLangAction(newLang: LangsList) {
     return {
         type: CHANGE_LANG,
         lang: newLang
     }
 }
 
-declare var window:{
-    devToolsExtension?:any;
-}
+declare var window: {
+    devToolsExtension?: any;
+    __store: Store<any>;
+};
 

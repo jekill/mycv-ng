@@ -1,8 +1,15 @@
-:host{
+:host {
   font-weight: bold;
   white-space: nowrap;
+  display: inline-block;
+  position: relative;
 }
-.registered{
+
+.registered {
   cursor: help;
-  text-decoration: underline dotted;
+  text-decoration-line: underline;
+  /deep/ .popover{
+    top: 2rem;
+    left: 0;
+  }
 }

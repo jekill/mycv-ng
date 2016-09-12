@@ -4,6 +4,9 @@ import {AppState} from "../../redux/state";
 import {TYPE_SKILL_REGISTER_DESCRIPTION, CreateHoverSkillAction} from "./skill.reduxt";
 import {elementPosition} from "../../utils/dom-utils";
 import {NgRedux} from "ng2-redux";
+import {HoverableElement} from "../../mixins/hoverable-element";
+import {applyMixins} from "rxjs/util/applyMixins";
+import {ValueGenerator} from "../../services/value-generator";
 
 
 @Component({
@@ -12,7 +15,7 @@ import {NgRedux} from "ng2-redux";
 })
 export class SkillDescription {
 
-    constructor(@Inject(ElementRef) public el:ElementRef) {
+    constructor(@Inject(ElementRef) public el: ElementRef) {
     }
 
 }
@@ -26,17 +29,20 @@ export class SkillDescription {
         "(mouseleave)": 'onMouseLeave()'
     }
 })
-export class Skill {
-    @ContentChild(SkillDescription) description:SkillDescription;
+export class Skill extends HoverableElement {
+    @ContentChild(SkillDescription) description: SkillDescription;
 
-    @Input() name:string;
-    @Input() icon:string;
-    @Input() site:string;
-    @Input() isExpanded:boolean = true;
+    @Input() name: string;
+    @Input() icon: string;
+    @Input() site: string;
+    @Input() isExpanded: boolean = true;
 
+    identifier: string;
 
-    constructor(@Inject(NgRedux) private store:NgRedux<AppState>,
-    @Inject(ElementRef) private element:ElementRef) {
+    constructor(@Inject(NgRedux) public store: NgRedux<AppState>,
+                @Inject(ElementRef) private element: ElementRef,
+                @Inject(ValueGenerator) private generator: ValueGenerator) {
+        super(store);
     }
 
 
@@ -46,20 +52,30 @@ export class Skill {
             return;
         }
 
-        const el = this.element.nativeElement;
-        const box = el.getBoundingClientRect();
-        let pos = elementPosition(el);
-        pos[0] += box.height;
-        console.log(pos);
+        super.onMouseEnter();
 
-        this.store.dispatch(<any>CreateHoverSkillAction(this.name, pos, true));
+        // const el = this.element.nativeElement;
+        // const box = el.getBoundingClientRect();
+        // let pos = elementPosition(el);
+        // pos[0] += box.height;
+        // console.log(pos);
+        //
+        // this.store.dispatch(<any>CreateHoverSkillAction(this.name, pos, true));
     }
 
     onMouseLeave() {
         if (this.isExpanded) {
             return;
         }
-        this.store.dispatch(<any>CreateHoverSkillAction(this.name, [0, 0], false));
+
+        super.onMouseLeave();
+
+        // this.store.dispatch(<any>CreateHoverSkillAction(this.name, [0, 0], false));
+    }
+
+    ngOnInit() {
+        this.identifier = this.name + '_' + this.generator.nextNumber();
+        super.ngOnInit();
     }
 
     ngAfterContentInit() {
