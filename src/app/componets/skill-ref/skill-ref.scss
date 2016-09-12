@@ -1,14 +1,16 @@
 :host {
   font-weight: bold;
   white-space: nowrap;
-  display: inline-block;
+  .skill-ref {
+    display: inline-block;
+  }
   position: relative;
 }
 
 .registered {
   cursor: help;
   text-decoration-line: underline;
-  /deep/ .popover{
+  /deep/ .popover {
     top: 2rem;
     left: 0;
   }

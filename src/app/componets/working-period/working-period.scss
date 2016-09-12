@@ -26,8 +26,12 @@
   margin-bottom: 10px;
   skill-ref {
     //margin: 0 2px;
+    white-space: nowrap;
+
     &:after {
-      content: ', ';
+      display: inline-block;
+      content: ',';
+      width: 10px;
     }
     &:last-child:after {
       content: '';

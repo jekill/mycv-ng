@@ -9,10 +9,7 @@ import {skills} from "../skill/skill.reduxt";
     styles: [require('./skill-popover-inline.scss')],
 })
 export class SkillPopoverInline {
-
-    @Input()
-    private name;
-    private isVisible;
+    @Input() private name;
     private skillData;
 
     constructor(@Inject(NgRedux) private store: NgRedux<AppState>) {
@@ -20,25 +17,10 @@ export class SkillPopoverInline {
     }
 
     ngOnInit() {
-        console.log('init');
         this.store.select('skills').subscribe(skills => {
             if (skills[this.name]) {
-                console.log(skills[this.name]);
                 this.skillData = skills[this.name];
             }
         });
-        // this.store.select('popoverSkillDescription').subscribe((skill: PopoverSkillDescription) => {
-        //     if (skill !== null && skill.skillName == this.name) {
-        //         console.log(skill.skillName);
-        //         this.skillData = skill;
-        //     }
-        // });
-
     }
-
-
-    // private clear() {
-    //     this.skillData = null;
-    //     this.position = [0, 0];
-    // }
 }
