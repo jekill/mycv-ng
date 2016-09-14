@@ -1,5 +1,5 @@
 import {Component, Input, Inject} from "@angular/core";
-import {AppState, PopoverSkillDescription} from "../../redux/state";
+import {AppState} from "../../redux/state";
 import {NgRedux} from "ng2-redux";
 import {skills} from "../skill/skill.reduxt";
 

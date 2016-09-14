@@ -1,6 +1,15 @@
 <div class="popover" *ngIf="skillData" style="display: block;">
     <div class="popover-content" id="content" #content >
 
+        <div *ngIf="skillData.about" class="about">
+            <div class="about-title">
+                <trans lang="en">About:</trans>
+                <trans lang="ru">Информация:</trans>
+            </div>
+            <div class="about-content">
+            {{skillData.about}}
+            </div>
+        </div>
     </div>
     <div class="popover-title">
         <img src="{{skillData.icon?skillData.icon:'assets/img/0.gif'}}" width="16" height="16" [class.no-icon]="!skillData.icon"/>

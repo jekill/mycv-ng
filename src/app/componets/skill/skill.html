@@ -6,6 +6,10 @@
     </div>
     <blockquote >
         <ng-content  select="description"></ng-content>
+
+        <div *ngIf="about" class="about">
+            {{about}}
+        </div>
     </blockquote>
 </div>
 <div class="collapsed skill label label-info" *ngIf="!isExpanded" [id]="identifier">

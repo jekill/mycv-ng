@@ -31,7 +31,6 @@ import {ValueGenerator} from "./services/value-generator";
         skills.SkillDescription,
         Block,
         ExpandButton,
-        SkillPopover,
         SkillPopoverInline,
         SkillRef,
         WorkingPeriod

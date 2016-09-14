@@ -1,11 +1,8 @@
-import {Component, ContentChild, ElementRef, Inject, ViewChild, HostListener, Input} from "@angular/core";
-import {Store} from "redux/index";
+import {Component, ContentChild, ElementRef, Inject, Input} from "@angular/core";
 import {AppState} from "../../redux/state";
-import {TYPE_SKILL_REGISTER_DESCRIPTION, CreateHoverSkillAction} from "./skill.reduxt";
-import {elementPosition} from "../../utils/dom-utils";
+import {TYPE_SKILL_REGISTER_DESCRIPTION} from "./skill.reduxt";
 import {NgRedux} from "ng2-redux";
 import {HoverableElement} from "../../mixins/hoverable-element";
-import {applyMixins} from "rxjs/util/applyMixins";
 import {ValueGenerator} from "../../services/value-generator";
 
 
@@ -30,12 +27,15 @@ export class SkillDescription {
     }
 })
 export class Skill extends HoverableElement {
+
     @ContentChild(SkillDescription) description: SkillDescription;
 
     @Input() name: string;
+    @Input() about: string;
     @Input() icon: string;
     @Input() site: string;
     @Input() isExpanded: boolean = true;
+
 
     identifier: string;
 
@@ -84,6 +84,7 @@ export class Skill extends HoverableElement {
             type: TYPE_SKILL_REGISTER_DESCRIPTION,
             data: {
                 skillName: this.name,
+                about: this.about,
                 descriptionElementRef: descriptionEl,
                 icon: this.icon,
                 site: this.site

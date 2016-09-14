@@ -1,4 +1,3 @@
-import {Block} from "./block";
 import {Action} from "redux/index";
 
 const BLOCK_UPDATE_BLOCK = "BLOCK_UPDATE_BLOCK";

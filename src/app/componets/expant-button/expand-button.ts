@@ -1,5 +1,4 @@
 import {Component, Input} from "@angular/core";
-import {Translation} from "../trans/translation";
 
 @Component({
     selector: 'expand-button',

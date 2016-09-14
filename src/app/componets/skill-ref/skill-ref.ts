@@ -1,12 +1,8 @@
-import {Component, Input, Inject, ElementRef} from "@angular/core";
-import {elementPosition} from "../../utils/dom-utils";
+import {Component, Input, Inject} from "@angular/core";
 import {AppState} from "../../redux/state";
-import {CreateHoverSkillAction} from "../skill/skill.reduxt";
 import {NgRedux, select} from "ng2-redux";
 import {ValueGenerator} from "../../services/value-generator";
-import {CreateAction_HoverElement} from "../../redux/actions/common-actions";
 import {HoverableElement} from "../../mixins/hoverable-element";
-import {applyMixins} from "rxjs/util/applyMixins";
 
 @Component({
     selector: 'skill-ref',
@@ -27,7 +23,6 @@ export class SkillRef extends HoverableElement {
     @select('skills') private skills;
 
     constructor(@Inject(NgRedux) public store: NgRedux<AppState>,
-                @Inject(ElementRef) private element: ElementRef,
                 @Inject(ValueGenerator) private generator: ValueGenerator) {
         super(store);
     }

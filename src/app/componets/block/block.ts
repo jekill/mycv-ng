@@ -1,6 +1,5 @@
 import {Component, QueryList, ContentChildren, Inject, Input} from "@angular/core";
 import {AppState} from "../../redux/state";
-import {Store} from "redux/index";
 import {CreateBlockUpdateAction} from "./block.redux";
 import {NgRedux} from "ng2-redux";
 
@@ -40,7 +39,6 @@ export class Block {
     }
 
     ngAfterContentInit() {
-        console.log("==== EXPA:", this.expandableComponents.length);
         this.expandableComponents.forEach((exp)=> exp.isExpand = this.isExpanded);
     }
 }

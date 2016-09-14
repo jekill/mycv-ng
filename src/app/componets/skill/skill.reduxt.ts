@@ -1,5 +1,4 @@
 import {Action} from "redux/index";
-import {SkillDescription} from "./skill";
 import {ElementRef} from "@angular/core";
 export const TYPE_SKILL_HOVER_ON = "TYPE_SKILL_HOVER_ON";
 export const TYPE_SKILL_HOVER_OFF = "TYPE_SKILL_HOVER_OFF";
@@ -8,20 +7,12 @@ export const TYPE_SKILL_REGISTER_DESCRIPTION = "TYPE_SKILL_REGISTER_DESCRIPTION"
 interface SkillsAction extends Action {
     data:{
         skillName:string,
-        descriptionElementRef?:ElementRef
+        about?:string,
+        descriptionElementRef?:ElementRef,
     }
     position?:number[]
 }
 
-export function CreateHoverSkillAction(skillName:string, pos:number[], isHoverOn:boolean):SkillsAction {
-    return {
-        type: isHoverOn ? TYPE_SKILL_HOVER_ON : TYPE_SKILL_HOVER_OFF,
-        data: {
-            skillName: skillName
-        },
-        position: pos
-    }
-}
 
 /**
  * skills reducer
