@@ -15,8 +15,7 @@ if (isProdMode) {
             mangle: {
                 keep_fnames: true
             }
-        }),
-        new webpack.optimize.DedupePlugin()
+        })
     ];
 }
 
@@ -25,12 +24,12 @@ if (isProdMode) {
  */
 const config = {
     devtool: 'source-map',
-    debug: true,
+    debug: !isProdMode,
     context: appSrcDirectory,
-    entry: 'bootstrap.ts',
+    entry: appSrcDirectory+'/bootstrap.ts',
     output: {
         filename: 'c.js',
-        path: './build'
+        path: __dirname+'/build'
     },
     module: {
         loaders: loaders.allLoaders(appSrcDirectory)

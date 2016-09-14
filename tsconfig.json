@@ -6,7 +6,15 @@
         "outDir": "built",
         "rootDir": ".",
         "sourceMap": true,
-        "experimentalDecorators": true
+        "inlineSourceMap": false,
+        "experimentalDecorators": true,
+        "emitDecoratorMetadata": true,
+        "moduleResolution": "node"
+    },
+    "awesomeTypescriptLoaderOptions": {
+        "useBabel": false,
+        "useCache": false,
+        "emitRequireType": false
     },
     "exclude": [
         "node_modules",

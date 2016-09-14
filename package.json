@@ -1,11 +1,11 @@
 {
   "name": "mycv-ng",
-  "version": "1.0.0",
+  "version": "2016.09.11",
   "description": "",
   "main": "index.js",
   "scripts": {
     "assets": "rm -fr ./src/assets/flags && cp -rp ./node_modules/flag-icon-css/flags ./src/assets/flags",
-    "server": "webpack-dev-server --hot --config webpack.config.js --inline --progress --profile --colors --watch --display-error-details --display-cached --content-base src/",
+    "server": "webpack-dev-server -d --inline --progress --watch --content-base src/",
     "build": "NODE_ENV=prod webpack --progress --profile --colors --display-error-details --display-cached && cp -rp ./src/assets ./build/",
     "test": "karma start"
   },
@@ -32,25 +32,30 @@
   "devDependencies": {
     "@angularclass/hmr": "^1.0.1",
     "@angularclass/hmr-loader": "^1.0.1",
+    "awesome-typescript-loader": "^2.2.1",
     "chai": "^3.5.0",
+    "css-loader": "^0.25.0",
+    "style-loader": "^0.13.1",
     "ejs-html-loader": "^1.2.2",
     "html-webpack-plugin": "^2.15.0",
-    "jasmine": "^2.4.1",
-    "jasmine-core": "2.5.0",
-    "karma": "^0.13.22",
+    "inline-source-map": "^0.6.2",
+    "jasmine-core": "^2.4.1",
+    "json-loader": "^0.5.4",
+    "karma": "^1.1.2",
     "karma-chai": "^0.1.0",
-    "karma-coverage": "^0.5.5",
+    "karma-chrome-launcher": "^2.0.0",
+    "karma-coverage": "^1.0.0",
     "karma-firefox-launcher": "^0.1.7",
-    "karma-jasmine": "^0.3.8",
+    "karma-jasmine": "^1.0.2",
     "karma-sourcemap-loader": "^0.3.7",
+    "karma-spec-reporter": "0.0.26",
     "karma-webpack": "^1.7.0",
     "node-sass": "^3.4.2",
     "raw-loader": "^0.5.1",
     "sass-loader": "^3.2.0",
-    "ts-loader": "^0.8.1",
-    "typescript": "^1.8.10",
+    "typescript": "^2.0.2",
     "typings": "^1.3.2",
-    "webpack": "^1.12.14",
-    "webpack-dev-server": "^1.14.1"
+    "webpack": "^2.1.0-beta.22",
+    "webpack-dev-server": "^2.1.0-beta.4"
   }
 }
