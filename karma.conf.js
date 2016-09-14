@@ -2,6 +2,9 @@
 
 const loaders = require('./webpack/loaders');
 const appSrcDirectory = __dirname + "/src";
+const webpack = require('webpack');
+
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 
 module.exports = function (config) {
@@ -13,21 +16,30 @@ module.exports = function (config) {
 
         // frameworks to use
         // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
-        frameworks: ['jasmine', 'chai'],
+        frameworks: ['jasmine','chai'],
 
 
         // list of files / patterns to load in the browser
         files: [
-            './src/tests.ts'
+            './src/tests.ts',
+            {
+                pattern: '**/*.map',
+                served: true,
+                included: false,
+                watched: true,
+            },
         ],
 
         plugins: [
             require('karma-jasmine'),
             require('karma-firefox-launcher'),
+            require('karma-chrome-launcher'),
+            require("karma-phantomjs-launcher"),
             require('karma-chai'),
             require('karma-webpack'),
             require('karma-sourcemap-loader'),
-            require('karma-coverage')
+            require('karma-coverage'),
+            require('karma-spec-reporter'),
         ],
         // list of files to exclude
         exclude: [],
@@ -38,30 +50,58 @@ module.exports = function (config) {
         preprocessors: {
             './src/**/*.ts': [
                 'webpack',
+                'sourcemap'
+            ],
+            './src/**/!(*.test|tests.*).(ts|js)': [
                 'sourcemap',
-                'coverage'
-            ]
+            ],
         },
 
 
         // test results reporter to use
         // possible values: 'dots', 'progress'
         // available reporters: https://npmjs.org/browse/keyword/karma-reporter
-        reporters: ['progress', 'jasmine', 'coverage'],
+        reporters: ['progress', 'spec', 'coverage'],
+        // reporters: ['dots'],
+
+
+        coverageReporter: {
+            reporters: [
+                {type: 'json'},
+                {type: 'html'},
+            ],
+            dir: './coverage/',
+            subdir: (browser) => {
+                return browser.toLowerCase().split(/[ /-]/)[0];
+            },
+        },
 
         webpack: {
-            entry: './src/tests.ts',
-            devtool: 'source-map',
-            verbose: true,
+            devtool: 'inline-source-map',
+            verbose: false,
             debug: true,
             resolve: {
                 extensions: ['', '.webpack.js', '.web.js', '.ts', '.js']
             },
             module: {
                 loaders: loaders.allLoaders(appSrcDirectory)
+            },
+            stats: {colors: true, reasons: true},
+            plugins: [
+                new webpack.DefinePlugin({
+                    __IS_PROD_MODE__: false,
+                    __IS_TEST_MODE__: false
+                })
+            ],
+            node: {
+                global:'window'
             }
+
         },
 
+        webpackMiddleware: {
+            noInfo: true,
+        },
 
         // web server port
         port: 9876,
@@ -82,7 +122,7 @@ module.exports = function (config) {
 
         // start these browsers
         // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
-        browsers: ['Firefox', 'Chrome'],
+        browsers: ['Chrome'],
 
 
         // Continuous Integration mode
