@@ -34,7 +34,6 @@ module.exports = function (config) {
             require('karma-jasmine'),
             require('karma-firefox-launcher'),
             require('karma-chrome-launcher'),
-            require("karma-phantomjs-launcher"),
             require('karma-chai'),
             require('karma-webpack'),
             require('karma-sourcemap-loader'),
