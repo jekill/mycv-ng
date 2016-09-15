@@ -2,6 +2,7 @@
 import "core-js/shim";
 import "zone.js";
 import "reflect-metadata";
+import '@angular/platform-browser';
 
 import {enableProdMode} from "@angular/core";
 

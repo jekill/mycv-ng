@@ -48,7 +48,6 @@ export class SkillRef implements HoverableElement {
 
 
     ngOnInit() {
-        console.log("GENERATOR", this.generator);
         this.identifier = this.name + '_' + this.generator.nextNumber();
         this.skills.subscribe(() => this.checkRegistered());
 

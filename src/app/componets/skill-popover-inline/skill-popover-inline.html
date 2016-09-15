@@ -1,6 +1,8 @@
 <div class="popover" *ngIf="skillData" style="display: block;">
     <div class="popover-content" id="content" #content >
-
+        <div class="description" [innerHTML]="html" *ngIf="html"></div>
+        <!--<div class="description" [innerHTML]="description()" *ngIf="description()!=''">-->
+        <!--</div>-->
         <div *ngIf="skillData.about" class="about">
             <div class="about-title">
                 <trans lang="en">About:</trans>

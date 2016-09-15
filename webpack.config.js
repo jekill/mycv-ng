@@ -15,7 +15,7 @@ if (isProdMode) {
             mangle: {
                 keep_fnames: true
             }
-        })
+        }),
     ];
 }
 

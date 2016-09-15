@@ -6,6 +6,10 @@
   position: absolute;
 }
 
+.description ~ .about{
+  margin-top: 10px;
+}
+
 .about-title{
   font-size: 0.8rem;
   color: #001;
@@ -13,5 +17,4 @@
 .about{
   font-size: 1rem;
   color: #7f7f7f;
-
 }
