@@ -1,8 +1,10 @@
+///<reference path="../../mixins/hoverable-element.ts"/>
 import {Component, Input, Inject} from "@angular/core";
 import {AppState} from "../../redux/state";
 import {NgRedux, select} from "ng2-redux";
 import {ValueGenerator} from "../../services/value-generator";
 import {HoverableElement} from "../../mixins/hoverable-element";
+import {CreateAction_HoverElement} from "../../redux/actions/common-actions";
 
 @Component({
     selector: 'skill-ref',
@@ -13,18 +15,19 @@ import {HoverableElement} from "../../mixins/hoverable-element";
         "(mouseleave)": 'onMouseLeave()'
     }
 })
-export class SkillRef extends HoverableElement {
+export class SkillRef implements HoverableElement {
+
 
     @Input() private name: string;
+    @select('skills') private skills;
 
     private isRegistered: boolean = false;
     public identifier: string;
 
-    @select('skills') private skills;
+    public isHover: boolean;
 
     constructor(@Inject(NgRedux) public store: NgRedux<AppState>,
                 @Inject(ValueGenerator) private generator: ValueGenerator) {
-        super(store);
     }
 
     checkRegistered() {
@@ -34,10 +37,25 @@ export class SkillRef extends HoverableElement {
         }
     }
 
+    // fixme: duplicate code. Bug appeared in rc7
+    onMouseEnter(): void {
+        this.store.dispatch(CreateAction_HoverElement(this.identifier, true));
+    }
+
+    onMouseLeave():void {
+        this.store.dispatch(CreateAction_HoverElement(this.identifier, false));
+    }
+
+
     ngOnInit() {
+        console.log("GENERATOR", this.generator);
         this.identifier = this.name + '_' + this.generator.nextNumber();
         this.skills.subscribe(() => this.checkRegistered());
-        super.ngOnInit();
+
+        // super.ngOnInit();
+        this.store.select('hoveredElement').subscribe((val) => {
+            this.isHover = (val === this.identifier);
+        });
     }
 
     // onMouseEnter() {
@@ -64,3 +82,4 @@ export class SkillRef extends HoverableElement {
     //     // this.store.dispatch(<any>CreateHoverSkillAction(this.name, [0, 0], false));
     // }
 }
+

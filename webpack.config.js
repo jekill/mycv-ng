@@ -39,6 +39,10 @@ const config = {
         extensions: ["", ".webpack.js", ".web.js", ".js", '.ts']
     },
     plugins: [
+        new webpack.ContextReplacementPlugin(
+            /angular(\\|\/)core(\\|\/)(esm(\\|\/)src|src)(\\|\/)linker/,
+           appSrcDirectory
+        ),
         new HtmlWebpackPlugin({
             template: 'index.html',
             inject: 'body'

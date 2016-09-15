@@ -5,17 +5,16 @@ import {Inject} from "@angular/core";
 
 export class HoverableElement {
     public identifier: string;
-    protected isHover: boolean = false;
-
+    public isHover: boolean = false;
 
     constructor(@Inject(NgRedux) public store: NgRedux<AppState>) {
     }
 
-    onMouseEnter() {
+    onMouseEnter(): void {
         this.store.dispatch(CreateAction_HoverElement(this.identifier, true));
     }
 
-    onMouseLeave() {
+    onMouseLeave():void {
         this.store.dispatch(CreateAction_HoverElement(this.identifier, false));
     }
 

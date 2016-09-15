@@ -1,5 +1,7 @@
-import "zone.js/dist/zone-node.js";
+// import "zone.js/dist/zone-node.js";
 import "core-js/shim";
+import "zone.js";
+import "reflect-metadata";
 
 import {enableProdMode} from "@angular/core";
 

@@ -24,13 +24,6 @@ export const AppStore: Store<any> = createStore(rootReducer, InitialState,
 
 window.__store = AppStore;
 
-// Action generators:
-export function CreateChangeLangAction(newLang: LangsList) {
-    return {
-        type: CHANGE_LANG,
-        lang: newLang
-    }
-}
 
 declare var window: {
     devToolsExtension?: any;

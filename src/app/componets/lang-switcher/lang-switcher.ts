@@ -1,9 +1,9 @@
 import {Component, Inject} from "@angular/core";
 import {AppState} from "../../redux/state";
-import {CreateChangeLangAction} from "../../redux/store";
 import {LangsList} from "../../types/langs-list";
 
 import {NgRedux, select} from "ng2-redux";
+import {CreateChangeLangAction} from "./lang-switcher.redux";
 
 @Component({
     selector: 'lang-switcher',
