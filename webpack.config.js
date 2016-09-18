@@ -26,10 +26,13 @@ const config = {
     devtool: 'source-map',
     debug: !isProdMode,
     context: appSrcDirectory,
-    entry: appSrcDirectory+'/bootstrap.ts',
+    entry: {
+        app: appSrcDirectory + '/bootstrap.ts',
+        vendor: appSrcDirectory + '/vendor.ts'
+    },
     output: {
         filename: 'c.js',
-        path: __dirname+'/build'
+        path: __dirname + '/build'
     },
     module: {
         loaders: loaders.allLoaders(appSrcDirectory)
@@ -41,8 +44,9 @@ const config = {
     plugins: [
         new webpack.ContextReplacementPlugin(
             /angular(\\|\/)core(\\|\/)(esm(\\|\/)src|src)(\\|\/)linker/,
-           appSrcDirectory
+            appSrcDirectory
         ),
+        new webpack.optimize.CommonsChunkPlugin({name:"vendor", filename:"vendor.bundle.js"}),
         new HtmlWebpackPlugin({
             template: 'index.html',
             inject: 'body'
