@@ -1,0 +1,1 @@
+declare var __IS_PROD_MODE__: boolean;

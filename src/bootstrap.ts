@@ -4,6 +4,7 @@ import {enableProdMode} from "@angular/core";
 import {platformBrowserDynamic} from "@angular/platform-browser-dynamic";
 
 import {AppModule} from "./app/app.module";
+import {bootloader} from "@angularclass/hmr";
 
 
 if (__IS_PROD_MODE__) {
@@ -14,12 +15,6 @@ if (__IS_PROD_MODE__) {
 function startApplication(){
     const platform = platformBrowserDynamic();
     platform.bootstrapModule(AppModule);
-
 }
 
-document.addEventListener('DOMContentLoaded', startApplication);
-
-
-declare var __IS_PROD_MODE__: boolean;
-
-
+bootloader(startApplication);

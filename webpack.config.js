@@ -4,13 +4,15 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const appSrcDirectory = __dirname + "/src";
 const loaders = require('./webpack/loaders');
 
-const isProdMode = process.env['NODE_ENV'] === 'prod';
+const isProdMode = global.__IS_PROD_MODE__ = process.env['NODE_ENV'] === 'prod';
 
 
 var devPlugins = [];
 
 if (isProdMode) {
     devPlugins = [
+        new webpack.NoErrorsPlugin(),
+        // new webpack.optimize.DedupePlugin(),
         new webpack.optimize.UglifyJsPlugin({
             mangle: {
                 keep_fnames: true
@@ -28,7 +30,8 @@ const config = {
     context: appSrcDirectory,
     entry: {
         app: appSrcDirectory + '/bootstrap.ts',
-        vendor: appSrcDirectory + '/vendor.ts'
+        vendor: appSrcDirectory + '/vendor.ts',
+        polyfills: appSrcDirectory + '/polyfills.ts'
     },
     output: {
         filename: 'c.js',
@@ -46,7 +49,7 @@ const config = {
             /angular(\\|\/)core(\\|\/)(esm(\\|\/)src|src)(\\|\/)linker/,
             appSrcDirectory
         ),
-        new webpack.optimize.CommonsChunkPlugin({name:"vendor", filename:"vendor.bundle.js"}),
+        new webpack.optimize.CommonsChunkPlugin({names: ["vendor", "polyfills"], filename: "[name].bundle.js"}),
         new HtmlWebpackPlugin({
             template: 'index.html',
             inject: 'body'

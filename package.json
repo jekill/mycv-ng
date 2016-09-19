@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "assets": "rm -fr ./src/assets/flags && cp -rp ./node_modules/flag-icon-css/flags ./src/assets/flags",
-    "server": "webpack-dev-server -d --inline --progress --watch --content-base src/",
+    "server": "webpack-dev-server -d --hot --inline --progress --watch --content-base src/",
     "build": "NODE_ENV=prod webpack --progress --profile --colors --display-error-details --display-cached && cp -rp ./src/assets ./build/",
     "test": "karma start"
   },

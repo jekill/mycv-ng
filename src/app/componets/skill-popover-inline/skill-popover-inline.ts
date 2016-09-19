@@ -13,9 +13,7 @@ export class SkillPopoverInline {
     private skillData;
     private html;
 
-    constructor(@Inject(NgRedux) private store: NgRedux<AppState>) {
-
-    }
+    constructor(@Inject(NgRedux) private store: NgRedux<AppState>) {}
 
     private description() {
         if (this.skillData && this.skillData.descriptionElementRef) {
@@ -41,7 +39,6 @@ export class SkillPopoverInline {
         if (this.skillData && this.skillData.descriptionElementRef) {
             setTimeout(()=> {
                 this.html = this.skillData.descriptionElementRef.nativeElement.innerHTML;
-                console.log("HTML!>>>",this.html);
             },0);
         }
     }
