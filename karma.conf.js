@@ -6,6 +6,7 @@ const webpack = require('webpack');
 
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
+global.__IS_PROD_MODE__=false;
 
 module.exports = function (config) {
     config.set({
