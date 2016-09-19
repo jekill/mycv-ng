@@ -4,10 +4,16 @@
         {{name}}
         <a href="{{site}}" *ngIf="site" class="site" target="_blank"><i class="fa fa-external-link-square"></i></a>
     </div>
-    <blockquote >
-        <ng-content  select="description"></ng-content>
+    <blockquote>
+        <div class="description" *ngIf="description">
+            <ng-content select="description"></ng-content>
+        </div>
 
         <div *ngIf="about" class="about">
+            <div class="about-title">
+                <trans lang="en">About the technology:</trans>
+                <trans lang="ru">Информация о технологии:</trans>
+            </div>
             {{about}}
         </div>
     </blockquote>

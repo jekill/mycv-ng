@@ -23,8 +23,19 @@
 .expanded{
   padding-left: 30px;
   margin-bottom: 20px;
+  .description{
+    font-size: 1.4rem;
+  }
+  .description + .about{
+    margin-top: 10px;
+  }
   .about{
+    .about-title{
+      font-style: normal;
+      color: forestgreen;
+    }
     color: #7f7f7f;
+    font-style: italic;
   }
   .name{
     font-weight: normal;
