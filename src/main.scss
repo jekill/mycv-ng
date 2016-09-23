@@ -3,23 +3,43 @@ body {
   padding: 40px 0;
   //
   > .container {
-  //  background: #fff none repeat scroll 0 0;
-  //  box-shadow: 0 0 20px #ddd;
+    //  background: #fff none repeat scroll 0 0;
+    //  box-shadow: 0 0 20px #ddd;
     padding-bottom: 60px;
     padding-top: 60px;
   }
 }
 
-h2,h4{
+h2, h4 {
   color: orangered;
 }
 
-
-.mycv-ng-link{
+.mycv-ng-link {
   text-align: center;
   margin: 20px 0 80px;
   font-size: 1.2rem;
-  &,a{
+  &, a {
     color: #777;
   }
 }
+
+body.pdf {
+  h2, h1 {
+    page-break-after: avoid;
+  }
+  .hide-pdf {
+    display: none !important;
+  }
+  .skills {
+    &.col-sm-8, &.col-md-9 {
+      width: 100% !important;
+    }
+  }
+  .skills .row {
+    .col-xs-10, .col-sm-10, .col-md-10, .col-lg-10 {
+      width: 100% !important;
+    }
+  }
+}
+
+

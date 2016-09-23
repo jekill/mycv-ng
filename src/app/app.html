@@ -1,6 +1,11 @@
 <div class="app">
-    <lang-switcher></lang-switcher>
+    <lang-switcher class="hide-pdf"></lang-switcher>
 
+    <div class="download-pdf hide-pdf">
+        <a href="Evgeny-Fomin-PHP_JavaScript-Fullstack-Developer_TeamLead_CTO.pdf">
+            <i class="fa fa-file-pdf-o"></i> Download as PDF
+        </a>
+    </div>
     <div class="row">
         <div class="col-xs-12 col-sm-8 col-md-9 col-lg-9">
             <div class="row">
@@ -62,8 +67,8 @@
 
         <block id="specialisation" #skillsBlock class="col-xs-12    col-sm-8 col-sm-pull-4   col-md-9 col-md-pull-3">
             <!--<header>-->
-                <!--<trans lang="en">About me</trans>-->
-                <!--<trans lang="ru">Обо мне</trans>-->
+            <!--<trans lang="en">About me</trans>-->
+            <!--<trans lang="ru">Обо мне</trans>-->
             <!--</header>-->
             <content>
 
@@ -73,8 +78,13 @@
                     </p>
                     <p>
                         The main technologies that I use to reach targets are:
-                        <skill-ref name="PHP"></skill-ref>/<skill-ref name="Symfony"></skill-ref> и
-                        <skill-ref name="JavaScript"></skill-ref>/<skill-ref name="Angular"></skill-ref>
+                        <skill-ref name="PHP"></skill-ref>
+                        /
+                        <skill-ref name="Symfony"></skill-ref>
+                        и
+                        <skill-ref name="JavaScript"></skill-ref>
+                        /
+                        <skill-ref name="Angular"></skill-ref>
                     </p>
                     <p>
                         I always ready to know something new.
@@ -90,8 +100,14 @@
                     </p>
                     <p>
                         Базовыми технологиями, которые я использую для достижения целей, являются:
-                        <skill-ref name="PHP"></skill-ref>/<skill-ref name="Symfony"></skill-ref> и
-                        <skill-ref name="JavaScript"></skill-ref>/<skill-ref name="Angular"></skill-ref>.
+                        <skill-ref name="PHP"></skill-ref>
+                        /
+                        <skill-ref name="Symfony"></skill-ref>
+                        и
+                        <skill-ref name="JavaScript"></skill-ref>
+                        /
+                        <skill-ref name="Angular"></skill-ref>
+                        .
                     </p>
                     <p>
                         Всегда готов изучать новое, постояно слежу за новинками IT мира и понимаю целесообразность их применения в конкретных случаях.<br/>
@@ -108,7 +124,7 @@
 
         <div class="clearfix"></div>
 
-        <block id="skills" #skillsBlock class="col-xs-12 col-sm-8 col-md-9 ">
+        <block id="skills" #skillsBlock class="col-xs-12 col-sm-8 col-md-9 skills">
             <header>
                 <trans lang="en">Actual technologies</trans>
                 <trans lang="ru">Актуальные технологии</trans>
@@ -119,18 +135,18 @@
                     <trans lang="ru">Что я использовал в рабочих проектах за последний год</trans>
                 </p>
 
-                <div class="row">
+                <div class="row skills">
                     <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
                         <% include blocks/actual-skills.html %>
                     </div>
-                    <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 text-center">
+                    <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 text-center hide-pdf">
                         <expand-button (click)="skillsBlock.handleExpandButton()" [isExpanded]="skillsBlock.isExpanded"></expand-button>
                     </div>
                 </div>
             </content>
         </block>
 
-        <block id="skills_other" #skillsBlockOther class="col-xs-12 col-sm-8 col-md-9">
+        <block id="skills_other" #skillsBlockOther class="col-xs-12 col-sm-8 col-md-9 skills">
             <header>
                 <trans lang="en">My other skills</trans>
                 <trans lang="ru">Другие навыки</trans>
@@ -145,7 +161,7 @@
                     <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
                         <% include blocks/other-skills.html %>
                     </div>
-                    <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 text-center">
+                    <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 text-center hide-pdf">
                         <expand-button (click)="skillsBlockOther.handleExpandButton()" [isExpanded]="skillsBlockOther.isExpanded"></expand-button>
                     </div>
                 </div>
