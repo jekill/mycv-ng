@@ -26,7 +26,7 @@ if (isProdMode) {
  */
 const config = {
     devtool: 'source-map',
-    debug: !isProdMode,
+
     context: appSrcDirectory,
     entry: {
         app: appSrcDirectory + '/bootstrap.ts',
@@ -41,10 +41,12 @@ const config = {
         loaders: loaders.allLoaders(appSrcDirectory)
     },
     resolve: {
-        root: appSrcDirectory,
-        extensions: ["", ".webpack.js", ".web.js", ".js", '.ts']
+        extensions: [ ".webpack.js", ".web.js", ".js", '.ts']
     },
     plugins: [
+        new webpack.LoaderOptionsPlugin({
+            debug: !isProdMode
+        }),
         new webpack.ContextReplacementPlugin(
             /angular(\\|\/)core(\\|\/)(esm(\\|\/)src|src)(\\|\/)linker/,
             appSrcDirectory
