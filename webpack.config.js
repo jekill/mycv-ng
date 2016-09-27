@@ -14,6 +14,8 @@ if (isProdMode) {
         new webpack.NoErrorsPlugin(),
         // new webpack.optimize.DedupePlugin(),
         new webpack.optimize.UglifyJsPlugin({
+            minimize: true,
+            debug: false,
             mangle: {
                 keep_fnames: true
             }

@@ -20,7 +20,7 @@ export class WorkingPeriod {
         if (list) {
             // this.mainTechnologiesList;
             this.mainTechnologiesList=list.split(",").map((skillName)=>skillName.trim())
-            console.log(this.mainTechnologiesList);
+            // console.log(this.mainTechnologiesList);
         }
     }
     
