@@ -79,17 +79,19 @@ export class Skill extends HoverableElement {
     }
 
     ngAfterContentInit() {
-        const descriptionEl = this.description ? this.description.el : null;
-        this.store.dispatch(<any>{
-            type: TYPE_SKILL_REGISTER_DESCRIPTION,
-            data: {
-                skillName: this.name,
-                about: this.about,
-                descriptionElementRef: descriptionEl,
-                icon: this.icon,
-                site: this.site
-            }
-        });
+        global.setTimeout(() => {
+            const descriptionEl = this.description ? this.description.el : null;
+            this.store.dispatch(<any>{
+                type: TYPE_SKILL_REGISTER_DESCRIPTION,
+                data: {
+                    skillName: this.name,
+                    about: this.about,
+                    descriptionElementRef: descriptionEl,
+                    icon: this.icon,
+                    site: this.site
+                }
+            });
+        },0);
     }
 
 }

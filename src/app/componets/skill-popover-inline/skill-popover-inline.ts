@@ -24,7 +24,7 @@ export class SkillPopoverInline {
 
     ngOnInit() {
         this.store.select('skills').subscribe(skills => {
-            if (skills[this.name]) {
+            if (skills[this.name] && !this.skillData) {
                 this.skillData = skills[this.name];
                 this.fetchDescriptionHtml();
             }
