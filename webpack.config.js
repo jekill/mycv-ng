@@ -32,7 +32,7 @@ const config = {
     context: appSrcDirectory,
     entry: {
         app: appSrcDirectory + '/bootstrap.ts',
-        vendor: appSrcDirectory + '/vendor.ts',
+        // vendor: appSrcDirectory + '/vendor.ts',
         polyfills: appSrcDirectory + '/polyfills.ts'
     },
     output: {
@@ -53,7 +53,7 @@ const config = {
             /angular(\\|\/)core(\\|\/)(esm(\\|\/)src|src)(\\|\/)linker/,
             appSrcDirectory
         ),
-        new webpack.optimize.CommonsChunkPlugin({names: ["vendor", "polyfills"], filename: "[name].bundle.js"}),
+        new webpack.optimize.CommonsChunkPlugin({names: [/*"vendor",*/ "polyfills"], filename: "[name].bundle.js"}),
         new HtmlWebpackPlugin({
             template: 'index.html',
             inject: 'body'
