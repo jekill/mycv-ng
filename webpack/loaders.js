@@ -8,7 +8,7 @@ exports.allLoaders = function (appSrcDirectory) {
             ],
             exclude: [/node_modules/, /\.(spec|e2e|d)\.ts$/]
         },
-        {test: /\.html$/, loaders: ['raw-loader', 'ejs-html'], exclude: [appSrcDirectory + '/index.html']},
+        {test: /\.html$/, loaders: ['raw-loader', 'ejs-html-loader'], exclude: [appSrcDirectory + '/index.html']},
         // {test: /\.html$/, loader: 'raw-loader',exclude:[appSrcDirectory+'/index.html']},
         // {test: /\.scss$/,  loaders: ['raw-loader', 'sass-loader?sourceMap']}
         {test: /\.scss$/, loaders: ['raw-loader', 'sass-loader?sourceMap']},
