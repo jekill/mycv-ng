@@ -13,7 +13,6 @@ export class Block {
 
     @Input() id:string = '';
     isExpanded:boolean = false;
-    @ContentChildren('skill') expandableComponents:QueryList<{isExpand:boolean}>;
     private unscribe:Function;
 
     constructor(@Inject(NgRedux) private store:NgRedux<AppState>) {
@@ -38,9 +37,6 @@ export class Block {
         this.store.dispatch(<any>a);
     }
 
-    ngAfterContentInit() {
-        this.expandableComponents.forEach((exp)=> exp.isExpand = this.isExpanded);
-    }
 }
 
 

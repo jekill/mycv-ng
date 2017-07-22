@@ -40,8 +40,8 @@ export class Skill extends HoverableElement {
     identifier: string;
 
     constructor(@Inject(NgRedux) public store: NgRedux<AppState>,
-                @Inject(ElementRef) private element: ElementRef,
-                @Inject(ValueGenerator) private generator: ValueGenerator) {
+                @Inject(ValueGenerator) private generator: ValueGenerator,
+    ) {
         super(store);
     }
 
@@ -79,7 +79,7 @@ export class Skill extends HoverableElement {
     }
 
     ngAfterContentInit() {
-        global.setTimeout(() => {
+        setTimeout(() => {
             const descriptionEl = this.description ? this.description.el : null;
             this.store.dispatch(<any>{
                 type: TYPE_SKILL_REGISTER_DESCRIPTION,

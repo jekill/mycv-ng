@@ -6,4 +6,6 @@ import {Component} from "@angular/core";
     styles: [require('./app.scss')],
 })
 export class App {
+    ngAfterContentInit(){
+    }
 }
