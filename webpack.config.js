@@ -50,7 +50,8 @@ const config = {
             debug: !isProdMode
         }),
         new webpack.ContextReplacementPlugin(
-            /angular(\\|\/)core(\\|\/)(esm(\\|\/)src|src)(\\|\/)linker/,
+            // /angular(\\|\/)core(\\|\/)(esm(\\|\/)src|src)(\\|\/)linker/,
+            /angular(\\|\/)core(\\|\/)@angular/,
             appSrcDirectory
         ),
         new webpack.optimize.CommonsChunkPlugin({names: [/*"vendor",*/ "polyfills"], filename: "[name].bundle.js"}),
