@@ -1,267 +1,230 @@
 <div class="app">
-    <lang-switcher class="hide-pdf"></lang-switcher>
+  <lang-switcher class="hide-pdf"></lang-switcher>
 
-    <div class="download-pdf hide-pdf">
-        <a href="Evgeny-Fomin-PHP_JavaScript-Fullstack-Developer_TeamLead_CTO.pdf">
-            <i class="fa fa-file-pdf-o"></i>
-            <trans lang="en">Download as PDF</trans>
-            <trans lang="ru">Скачать как PDF</trans>
-        </a>
+  <div class="download-pdf hide-pdf">
+    <a href="Evgeny-Fomin-PHP_JavaScript-Fullstack-Developer_TeamLead_CTO.pdf">
+      <i class="fa fa-file-pdf-o"></i>
+      <trans lang="en">Download as PDF</trans>
+      <trans lang="ru">Скачать как PDF</trans>
+    </a>
+  </div>
+  <div class="row">
+    <div class="col-xs-12 col-sm-8 col-md-9 col-lg-9">
+      <div class="row">
+        <div class="col-xs-4 col-sm-3 col-md-2 col-lg-2">
+          <img class="img-responsive img-circle" src="assets/img/jeka-avatar.jpg">
+        </div>
+        <div class="col-xs-8 col-sm-9 col-md-10 col-lg-10">
+          <h1 class="h-name">
+            <trans lang="en">Evgeny P Fomin</trans>
+            <trans lang="ru">Фомин Евгений Павлович</trans>
+          </h1>
+          <p class="job-position">
+            Lead Frontend Developer
+          </p>
+          <address>
+            <trans lang="en">Moscow, Russia</trans>
+            <trans lang="ru">Москва, Россия</trans>
+          </address>
+        </div>
+      </div>
     </div>
-    <div class="row">
-        <div class="col-xs-12 col-sm-8 col-md-9 col-lg-9">
-            <div class="row">
-                <div class="col-xs-4 col-sm-3 col-md-2 col-lg-2">
-                    <img class="img-responsive img-circle" src="assets/img/jeka-avatar.jpg">
-                </div>
-                <div class="col-xs-8 col-sm-9 col-md-10 col-lg-10">
-                    <h1 class="h-name">
-                        <trans lang="en">Evgeny P Fomin</trans>
-                        <trans lang="ru">Фомин Евгений Павлович</trans>
-                    </h1>
-                    <p class="job-position">
-                        PHP (Symfony) / JavaScript / Full stack
-                        <trans lang="en">developer</trans>
-                        <trans lang="ru">разработчик</trans>
-                    </p>
-                    <address>
-                        <trans lang="en">Moscow, Russia</trans>
-                        <trans lang="ru">Москва, Россия</trans>
-                    </address>
-                </div>
-            </div>
-        </div>
 
 
-        <div class="contacts links col-xs-5 col-sm-4 col-md-3 ">
-            <h2 class="contacts">
-                <trans lang="en">Contact me:</trans>
-                <trans lang="ru">Связь:</trans>
-            </h2>
-            <ul class="links">
-                <li><a href="mailto:info@jeka.ru"><span class="fa fa-envelope"></span> info@jeka.ru</a></li>
-                <li><a title="Skype: jeka.ru" href="skype:jeka.ru"><span class="fa fa-skype"></span> jeka.ru</a></li>
-                <li><a title="Site: jeka.ru" href="http://jeka.ru" target="_blank"><i class="fa fa-link"></i> http://jeka.ru</a></li>
-            </ul>
-        </div>
-
-        <div class="clearfix visible-sm-block visible-md-block visible-lg-block"></div>
-
-        <div class="contacts col-xs-7    col-sm-4 col-sm-push-8   col-md-3 col-md-push-9">
-            <block id="profiles" sidebar="true" class="links" col="3" col-xs="12" push-sm="9">
-                <header>
-                    <trans lang="en">Profiles</trans>
-                    <trans lang="ru">Профили</trans>
-                </header>
-                <content>
-                    <ul class="links">
-                        <li><a title="Twitter" target="_blank" href="http://twitter.com/jekill"><span class="fa fa-twitter"></span> http://twitter.com/jekill</a></li>
-                        <li><a title="Github" target="_blank" href="https://github.com/jekill"><span class="fa fa-github"></span> https://github.com/jekill</a></li>
-                        <li>
-                            <a title="Facebook" target="_blank" href="https://www.facebook.com/eugeny.fomin"><span class="fa fa-facebook"></span> https://www.facebook.com/eugeny.fomin</a>
-                        </li>
-                        <li><a title="VK.COM, VKontakte" target="_blank" href="http://vk.com/ru_jeka"><span class="fa fa-vk"></span> http://vk.com/ru_jeka</a></li>
-                    </ul>
-                </content>
-            </block>
-        </div>
-
-
-        <block id="specialisation" #skillsBlock class="col-xs-12    col-sm-8 col-sm-pull-4   col-md-9 col-md-pull-3">
-            <!--<header>-->
-            <!--<trans lang="en">About me</trans>-->
-            <!--<trans lang="ru">Обо мне</trans>-->
-            <!--</header>-->
-            <content>
-
-                <trans lang="en">
-                    <p>
-                        I have deep knowledge and expertise over 15 years in the fields of web development.
-                    </p>
-                    <p>
-                        In my work I use the following programming languages and frameworks:
-                        <skill-ref name="PHP"></skill-ref>
-                        /
-                        <skill-ref name="Symfony"></skill-ref>
-                        и
-                        <skill-ref name="JavaScript"></skill-ref>
-                        /
-                        <skill-ref name="Angular"></skill-ref>
-                    </p>
-                    <p>
-                        I am open for new knowledge.
-                        I follow the latest IT innovations, learn to apply them for solving specific tasks.
-                    </p>
-                    <p>
-                        I have a large network of business and professional contacts.<br/>
-                        I have experience in different business areas and a good understanding of business goals.
-                        I am extremely hard working, trustworthy and reliable  and I have high expectations of my team and myself.
-                    </p>
-                </trans>
-                <trans lang="ru">
-                    <p>
-                        Имею большой опыт работы в облати разработки вебприложений, более 15 лет
-                    </p>
-                    <p>
-                        Базовыми технологиями, которые я использую для достижения целей, являются:
-                        <skill-ref name="PHP"></skill-ref>
-                        /
-                        <skill-ref name="Symfony"></skill-ref>
-                        и
-                        <skill-ref name="JavaScript"></skill-ref>
-                        /
-                        <skill-ref name="Angular"></skill-ref>
-                        .
-                    </p>
-                    <p>
-                        Всегда готов изучать новое, постояно слежу за новинками IT мира и понимаю целесообразность их применения в конкретных случаях.<br/>
-                    </p>
-                    <p>
-                        Последние пару лет моей работы, в основном, были посвящены запуску различных стартапов.<br/>
-                    </p>
-                    <p>
-                        Понимаю потребности бизнеса.
-                    </p>
-                </trans>
-            </content>
-        </block>
-
-        <div class="clearfix"></div>
-
-        <block id="skills" #skillsBlock class="col-xs-12 col-sm-8 col-md-9 skills">
-            <header>
-                <trans lang="en">Programming languages, technologies and tools</trans>
-                <trans lang="ru">Языки, технологии и инструменты</trans>
-            </header>
-            <content>
-                <p>
-                    <trans lang="en">Programming languages, technologies and tools I have been using in my recent projects</trans>
-                    <trans lang="ru">Что я использовал в рабочих проектах за последний год</trans>
-                </p>
-
-                <div class="row skills">
-                    <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
-                        <% include blocks/actual-skills.html %>
-                    </div>
-                    <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 text-center hide-pdf">
-                        <expand-button (click)="skillsBlock.handleExpandButton()" [isExpanded]="skillsBlock.isExpanded"></expand-button>
-                    </div>
-                </div>
-            </content>
-        </block>
-
-        <block id="skills_other" #skillsBlockOther class="col-xs-12 col-sm-8 col-md-9 skills">
-            <header>
-                <trans lang="en">Other skills</trans>
-                <trans lang="ru">Другие навыки</trans>
-            </header>
-            <content>
-                <p>
-                    <trans lang="en">Other tools I used to work with, or still use in rare cases:</trans>
-                    <trans lang="ru">Список технологий и инструментов с которыми у меня имеется приличный опыт, но использую их редко или использовал часто в прошлом:</trans>
-                </p>
-
-                <div class="row">
-                    <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
-                        <% include blocks/other-skills.html %>
-                    </div>
-                    <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 text-center hide-pdf">
-                        <expand-button (click)="skillsBlockOther.handleExpandButton()" [isExpanded]="skillsBlockOther.isExpanded"></expand-button>
-                    </div>
-                </div>
-            </content>
-        </block>
-
-
-        <block class="col-xs-12 col-sm-12 col-md-9">
-            <header>
-                <trans lang="en">Social activity</trans>
-                <trans lang="ru">Социальная активность</trans>
-            </header>
-            <content>
-                <div class="media">
-                    <a class="media-left" href="http://www.meetup.com/Symfoniacs/" target="_blank">
-                        <img src="assets/img/symfoniacs-logo.png" width="110" height="110"/>
-                    </a>
-                    <div class="media-body">
-                        <p>
-                            <trans lang="en">
-                                Currently I am <strong>the head</strong> of the biggest PHP/Symfony community in Russia
-                            </trans>
-                            <trans lang="ru">
-                                На&nbsp;текущий момент являюсь <strong>главным организатором</strong> крупнейшего в&nbsp;России сообщества
-                                PHP/Symfony разработчиков
-                            </trans>
-                            &mdash;&nbsp;<a href="http://www.meetup.com/Symfoniacs/" target="_blank" rel="noreferrer noopener">Symfoniacs.</a>
-                        </p>
-                        <p>
-                            <trans lang="en">
-                                We often hold meetings/mini-conferences with presentations and tech discussions, exchange experience.
-                            </trans>
-                            <trans lang="ru">
-                                В рамках нашего сообщества периодически организуются живые встречи разработчиков,
-                                проводятся мини-конференции с докладами и обсуждениями.
-                            </trans>
-                        </p>
-                        <p class="hide-pdf">
-                            <trans lang="en">You can see videos of our presentations</trans>
-                            <trans lang="ru">Вы можете смотреть видео наших презентаций </trans>
-                            <a href="https://www.youtube.com/channel/UCeJmv3YIHb0UrHUbJ23wADA/videos?view=0&sort=dd&shelf_id=0" target="_blank" rel="noreferrer noopener">
-                                <i class="fa fa-youtube-play" style="font-size: 1.3em"></i>
-                                <trans lang="en">here</trans>
-                                <trans lang="ru">здесь</trans>
-                            </a>
-                        </p>
-                    </div>
-                </div>
-                <div class="media">
-                    <a class="media-left" href="http://moscowjs.ru/" target="_blank" rel="noopener noreferrer">
-                        <img src="assets/img/moscowjs-logo.png" width="64" height="64" style="margin: 0 23px"/>
-                    </a>
-                    <div class="media-body">
-                        <p>
-                            <trans lang="en">I am an active member of JavaScript community &mdash; <a href="http://moscowjs.ru/" target="_blank">MoscowJS.</a></trans>
-                            <trans lang="ru">Также активный участник сообщества JavaScript разработчиков &mdash; <a href="http://moscowjs.ru/" target="_blank">MoscowJS.</a></trans>
-                        </p>
-                    </div>
-                </div>
-            </content>
-        </block>
-
-        <block class="col-xs-12 col-sm-12 col-md-9">
-            <header>
-                <trans lang="en">Experience</trans>
-                <trans lang="ru">Опыт работы</trans>
-            </header>
-            <content>
-                <% include blocks/experience.html %>
-
-                <trans lang="en">
-                    <p><i>References available upon request.</i></p>
-                </trans>
-            </content>
-        </block>
-
-        <block class="col-xs-12 col-sm-12 col-md-9">
-            <header>
-                <trans lang="en">Education</trans>
-                <trans lang="ru">Образование</trans>
-            </header>
-            <content>
-                <trans lang="en">
-                    <ul>
-                        <li><b>Moscow State Engineering And Physics Institute,</b> (1999-2004), Computer science and Electronics</li>
-                        <li><b>Moscow Instrument-Making College,</b> (1995-1999), Computer science and Electronics</li>
-                    </ul>
-                </trans>
-                <trans lang="ru">
-                    <ul>
-                        <li><b>МИФИ,</b> (1999-2004), Факультеты Автоматика и Кибернетика [2201] (незакончен)</li>
-                        <li><b>МПТ,</b> (1995-1999), [2201 электронно вычислительные машины системы и сети]</li>
-                    </ul>
-                </trans>
-            </content>
-        </block>
+    <div class="contacts links col-xs-5 col-sm-4 col-md-3 ">
+      <h2 class="contacts">
+        <trans lang="en">Contact me:</trans>
+        <trans lang="ru">Связь:</trans>
+      </h2>
+      <ul class="links">
+        <li><a href="mailto:info@jeka.ru"><span class="fa fa-envelope"></span> info@jeka.ru</a></li>
+        <li><a title="Skype: jeka.ru" href="skype:jeka.ru"><span class="fa fa-skype"></span> jeka.ru</a></li>
+        <li><a title="Site: jeka.ru" href="http://jeka.ru" target="_blank"><i class="fa fa-link"></i> http://jeka.ru</a></li>
+      </ul>
     </div>
+
+    <div class="clearfix visible-sm-block visible-md-block visible-lg-block"></div>
+
+    <div class="contacts col-xs-7 col-sm-4 col-sm-push-8   col-md-3 col-md-push-9">
+      <block id="profiles" sidebar="true" class="links" col="3" col-xs="12" push-sm="9">
+        <header>
+          <trans lang="en">Profiles</trans>
+          <trans lang="ru">Профили</trans>
+        </header>
+        <content>
+          <ul class="links">
+            <li><a title="Twitter" target="_blank" href="http://twitter.com/jekill"><span class="fa fa-twitter"></span> http://twitter.com/jekill</a></li>
+            <li><a title="Github" target="_blank" href="https://github.com/jekill"><span class="fa fa-github"></span> https://github.com/jekill</a></li>
+            <li>
+              <a title="Facebook" target="_blank" href="https://www.facebook.com/eugeny.fomin"><span class="fa fa-facebook"></span> https://www.facebook.com/eugeny.fomin</a>
+            </li>
+            <li><a title="VK.COM, VKontakte" target="_blank" href="http://vk.com/ru_jeka"><span class="fa fa-vk"></span> http://vk.com/ru_jeka</a></li>
+          </ul>
+        </content>
+      </block>
+    </div>
+
+    <% include blocks/main-specialization.html %>
+
+    <div class="clearfix"></div>
+
+    <block id="skills" #skillsBlock class="col-xs-12 col-sm-8 col-md-9 skills">
+      <header>
+        <trans lang="en">Programming languages, technologies and tools</trans>
+        <trans lang="ru">Языки, технологии и инструменты</trans>
+      </header>
+      <content>
+        <p>
+          <trans lang="en">Programming languages, technologies and tools I have been using in my recent projects</trans>
+          <trans lang="ru">Что я использовал в рабочих проектах за последний год</trans>
+        </p>
+
+        <div class="row skills">
+          <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
+            <% include blocks/actual-skills.html %>
+          </div>
+          <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 text-center hide-pdf">
+            <expand-button (click)="skillsBlock.handleExpandButton()" [isExpanded]="skillsBlock.isExpanded"></expand-button>
+          </div>
+        </div>
+      </content>
+    </block>
+
+    <block id="skills_other" #skillsBlockOther class="col-xs-12 col-sm-8 col-md-9 skills">
+      <header>
+        <trans lang="en">Other skills</trans>
+        <trans lang="ru">Другие навыки</trans>
+      </header>
+      <content>
+        <p>
+          <trans lang="en">Other tools I used to work with, or still use in rare cases:</trans>
+          <trans lang="ru">Список технологий и инструментов с которыми у меня имеется приличный опыт, но использую их редко или использовал часто в прошлом:</trans>
+        </p>
+
+        <div class="row">
+          <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
+            <% include blocks/other-skills.html %>
+          </div>
+          <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 text-center hide-pdf">
+            <expand-button (click)="skillsBlockOther.handleExpandButton()" [isExpanded]="skillsBlockOther.isExpanded"></expand-button>
+          </div>
+        </div>
+      </content>
+    </block>
+
+    <block class="col-xs-12 col-sm-12 col-md-9">
+      <header>
+        <trans lang="en">Social activity</trans>
+        <trans lang="ru">Социальная активность</trans>
+      </header>
+      <content>
+        <div class="media">
+          <a class="media-left" href="http://www.meetup.com/Symfoniacs/" target="_blank">
+            <img src="assets/img/symfoniacs-logo.png" width="110" height="58"/>
+          </a>
+          <div class="media-body">
+            <p>
+              <trans lang="en">
+                Currently I am <strong>the head</strong> of the biggest PHP/Symfony community in Russia
+              </trans>
+              <trans lang="ru">
+                На&nbsp;текущий момент являюсь <strong>главным организатором</strong> крупнейшего в&nbsp;России сообщества
+                PHP/Symfony разработчиков
+              </trans>
+              &mdash;&nbsp;<a href="http://www.meetup.com/Symfoniacs/" target="_blank" rel="noreferrer noopener">Symfoniacs.</a>
+            </p>
+            <p>
+              <trans lang="en">
+                We often hold meetings/mini-conferences with presentations and tech discussions, exchange experience.
+              </trans>
+              <trans lang="ru">
+                В рамках нашего сообщества периодически организуются живые встречи разработчиков,
+                проводятся мини-конференции с докладами и обсуждениями.
+              </trans>
+            </p>
+            <p class="hide-pdf">
+              <trans lang="en">You can see videos of our presentations</trans>
+              <trans lang="ru">Вы можете смотреть видео наших презентаций</trans>
+              <a href="https://www.youtube.com/channel/UCeJmv3YIHb0UrHUbJ23wADA/videos?view=0&sort=dd&shelf_id=0" target="_blank" rel="noreferrer noopener">
+                <i class="fa fa-youtube-play" style="font-size: 1.3em"></i>
+                <trans lang="en">here</trans>
+                <trans lang="ru">здесь</trans>
+              </a>
+            </p>
+          </div>
+        </div>
+        <div class="media">
+          <a class="media-left" href="https://www.meetup.com/vue-js-moscow/" target="_blank">
+            <img src="assets/img/vue-meetup.png" width="110" height="110"/>
+          </a>
+          <div class="media-body">
+            <p>
+              <trans lang="en">
+                The main organizer of  
+              </trans>
+              <trans lang="ru">
+                Основной организатор
+              </trans>
+              <a href="https://www.meetup.com/vue-js-moscow/" target="_blank" rel="noreferrer noopener">Vue.Js Moscow Meetup.</a>
+            </p>
+            <p>
+              <trans lang="en">
+                We often hold meetings/mini-conferences with presentations and tech discussions, exchange experience.
+              </trans>
+              <trans lang="ru">
+                В рамках нашего сообщества периодически организуются живые встречи разработчиков,
+                проводятся мини-конференции с докладами и обсуждениями.
+              </trans>
+            </p>
+            <p class="hide-pdf">
+              <trans lang="en">You can see videos of our presentations</trans>
+              <trans lang="ru">Вы можете смотреть видео наших презентаций</trans>
+              <a href="https://www.youtube.com/channel/UCeJmv3YIHb0UrHUbJ23wADA/videos?view=0&sort=dd&shelf_id=0" target="_blank" rel="noreferrer noopener">
+                <i class="fa fa-youtube-play" style="font-size: 1.3em"></i>
+                <trans lang="en">here</trans>
+                <trans lang="ru">здесь</trans>
+              </a>
+            </p>
+          </div>
+        </div>
+
+      </content>
+    </block>
+
+    <block class="col-xs-12 col-sm-12 col-md-9">
+      <header>
+        <trans lang="en">Experience</trans>
+        <trans lang="ru">Опыт работы</trans>
+      </header>
+      <content>
+        <% include blocks/experience.html %>
+
+        <trans lang="en">
+          <p><i>References available upon request.</i></p>
+        </trans>
+      </content>
+    </block>
+
+    <block class="col-xs-12 col-sm-12 col-md-9">
+      <header>
+        <trans lang="en">Education</trans>
+        <trans lang="ru">Образование</trans>
+      </header>
+      <content>
+        <trans lang="en">
+          <ul>
+            <li><b>Moscow State Engineering And Physics Institute,</b> (1999-2004), Computer science and Electronics</li>
+            <li><b>Moscow Instrument-Making College,</b> (1995-1999), Computer science and Electronics</li>
+          </ul>
+        </trans>
+        <trans lang="ru">
+          <ul>
+            <li><b>МИФИ,</b> (1999-2004), Факультеты Автоматика и Кибернетика [2201] (незакончен)</li>
+            <li><b>МПТ,</b> (1995-1999), [2201 электронно вычислительные машины системы и сети]</li>
+          </ul>
+        </trans>
+      </content>
+    </block>
+  </div>
 
 </div>

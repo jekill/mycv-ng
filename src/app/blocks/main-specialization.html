@@ -1,0 +1,46 @@
+<block id="main_specialisation" #skillsBlockMain class="col-xs-12 col-sm-8 col-sm-pull-4 col-md-9 col-md-pull-3">
+  <content>
+    <trans lang="en">
+      <p>
+        I have strong knowledge and expertise in computer science.<br/>
+        For the last few years, my specialization is <b>Frontend Development.</b>
+      </p>
+    </trans>
+    <trans lang="ru">
+      <p>
+        Большой опыт в области разработки программного обеспечения.<br/>
+        Последние несколько лет моей специализацией является <b>Frontend Development.</b>
+      </p>
+    </trans>
+
+    <div class="row skills">
+      <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
+        <% include main-specialization-skills.html %>
+      </div>
+      <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 text-center hide-pdf">
+        <expand-button (click)="skillsBlockMain.handleExpandButton()" [isExpanded]="skillsBlockMain.isExpanded"></expand-button>
+      </div>
+    </div>
+
+    <div>
+      <trans lang="en">
+        <p>
+          I am open to new knowledge and follow the latest IT innovations to be ready to apply them for solving specific tasks.
+        </p>
+        <p>
+          I have a large network of business and professional contacts.<br/>
+          I have experience in different business areas and a good understanding of business goals.
+        </p>
+      </trans>
+      <trans lang="ru">
+        <p>
+          Всегда готов изучать новое, постояно слежу за новинками IT мира и понимаю целесообразность их применения в конкретных случаях.<br/>
+        </p>
+        <p>
+          Понимаю потребности бизнеса.
+        </p>
+      </trans>
+    </div>
+
+  </content>
+</block>
