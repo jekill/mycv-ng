@@ -21,7 +21,7 @@ export interface PopoverSkillDescription {
 }
 
 export const InitialState: AppState = {
-  lang: LangsList.en,
+  lang: LangsList.ru,
   isSkillsBlockExpanded: false,
   blocks: {},
   skills: {},
