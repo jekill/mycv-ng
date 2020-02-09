@@ -50,7 +50,6 @@ const config = {
             debug: !isProdMode
         }),
         new webpack.ContextReplacementPlugin(
-            // /angular(\\|\/)core(\\|\/)(esm(\\|\/)src|src)(\\|\/)linker/,
             /angular(\\|\/)core(\\|\/)@angular/,
             appSrcDirectory
         ),

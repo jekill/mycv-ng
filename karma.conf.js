@@ -4,9 +4,7 @@ const loaders = require('./webpack/loaders');
 const appSrcDirectory = __dirname + "/src";
 const webpack = require('webpack');
 
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-
-global.__IS_PROD_MODE__=false;
+// const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = function (config) {
     config.set({
@@ -14,21 +12,20 @@ module.exports = function (config) {
         // base path that will be used to resolve all patterns (eg. files, exclude)
         basePath: '',
 
-
         // frameworks to use
         // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
-        frameworks: ['jasmine','chai'],
-
+        frameworks: ['jasmine', 'chai'],
 
         // list of files / patterns to load in the browser
         files: [
-            './src/tests.ts',
-            {
-                pattern: '**/*.map',
-                served: true,
-                included: false,
-                watched: true,
-            },
+            appSrcDirectory + '/tests.ts'
+            // './src/tests.ts',
+            // {
+            //     pattern: '**/*.map',
+            //     served: true,
+            //     included: false,
+            //     watched: true,
+            // },
         ],
 
         plugins: [
@@ -48,27 +45,21 @@ module.exports = function (config) {
         // preprocess matching files before serving them to the browser
         // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
         preprocessors: {
-            './src/**/*.ts': [
+            './**/*.(ts|js)': [
                 'webpack',
                 'sourcemap'
-            ],
-            './src/**/!(*.test|tests.*).(ts|js)': [
-                'sourcemap',
-            ],
+            ]
         },
-
 
         // test results reporter to use
         // possible values: 'dots', 'progress'
         // available reporters: https://npmjs.org/browse/keyword/karma-reporter
         reporters: ['progress', 'spec', 'coverage'],
-        // reporters: ['dots'],
-
 
         coverageReporter: {
             reporters: [
-                {type: 'json'},
-                {type: 'html'},
+                { type: 'json' },
+                { type: 'html' },
             ],
             dir: './coverage/',
             subdir: (browser) => {
@@ -76,25 +67,50 @@ module.exports = function (config) {
             },
         },
 
+        webpackServer: {
+            noInfo: true
+        },
+
         webpack: {
             devtool: 'inline-source-map',
-            verbose: false,
-            debug: true,
+
             resolve: {
-                extensions: ['', '.webpack.js', '.web.js', '.ts', '.js']
+                extensions: ['.ts', '.js']
             },
+
+            entry: [
+                appSrcDirectory + '/tests.ts'
+            ],
+
             module: {
-                loaders: loaders.allLoaders(appSrcDirectory)
+                loaders: loaders.allLoaders(appSrcDirectory, false)
             },
-            stats: {colors: true, reasons: true},
+
+            stats: { colors: true, reasons: true },
             plugins: [
+
                 new webpack.DefinePlugin({
-                    __IS_PROD_MODE__: false,
-                    __IS_TEST_MODE__: false
-                })
+                    '__IS_PROD_MODE__': false,
+                    '__IS_TEST_MODE__': false
+                }),
+
+                new webpack.LoaderOptionsPlugin({
+                    debug: true
+                }),
+
+                new webpack.ContextReplacementPlugin(
+                    /angular(\\|\/)core(\\|\/)@angular/,
+                    appSrcDirectory
+                ),
+
             ],
             node: {
-                global:'window'
+                global: false,
+                process: false,
+                crypto: 'empty',
+                module: false,
+                clearImmediate: false,
+                setImmediate: false
             }
 
         },

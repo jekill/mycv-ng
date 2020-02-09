@@ -1,9 +1,10 @@
-exports.allLoaders = function (appSrcDirectory) {
-    return [
+exports.allLoaders = function (appSrcDirectory, PROD_MODE) {
+    PROD_MODE = !!PROD_MODE
+    let loaders = [
         {
             test: /\.ts$/,
             loaders: [
-                '@angularclass/hmr-loader?pretty=' + !__IS_PROD_MODE__ + '&prod=' + __IS_PROD_MODE__,
+                '@angularclass/hmr-loader?pretty=' + !PROD_MODE + '&prod=' + PROD_MODE,
                 'awesome-typescript-loader'
             ],
             exclude: [/node_modules/, /\.(spec|e2e|d)\.ts$/]
@@ -23,4 +24,6 @@ exports.allLoaders = function (appSrcDirectory) {
             },
         }
     ];
+
+    return loaders;
 };

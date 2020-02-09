@@ -2,6 +2,7 @@
     "compilerOptions": {
         "module": "es6",
         "target": "es5",
+        "lib":["es6","dom"],
         "noImplicitAny": false,
         "outDir": "built",
         "rootDir": ".",
@@ -21,14 +22,11 @@
     ],
     "exclude": [
         "node_modules",
-        "dist",
-        "typings/main",
-        "typings/main.d.ts"
+        "dist"
     ],
     "filesGlob": [
         "./src/**/*.ts",
         "./test/**/*.ts",
-        "!./node_modules/**/*.ts",
-        "typings/browser.d.ts"
+        "!./node_modules/**/*.ts"
     ]
 }

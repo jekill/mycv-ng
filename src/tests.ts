@@ -1,5 +1,5 @@
-// import 'core-js/es6';
-// import 'core-js/es7/reflect';
+import 'core-js/es6';
+import 'core-js/es7/reflect';
 
 import "reflect-metadata";
 
@@ -12,6 +12,9 @@ import "reflect-metadata";
 
 
 let testContext = (<any>require).context("./", true, /\.spec.ts$/);
+
+
+console.log("+++++++", testContext);
 
 // testContext('./bootstrap.ts');
 
