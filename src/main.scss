@@ -23,6 +23,9 @@ h2, h4 {
   }
 }
 
+.show-pdf{
+  display: none !important;
+}
 body.pdf {
   padding: 0;
   h2, h1 {
@@ -30,6 +33,9 @@ body.pdf {
   }
   .hide-pdf {
     display: none !important;
+  }
+  .show-pdf{
+    display: initial !important;
   }
   .skills {
     &.col-sm-8, &.col-md-9 {
